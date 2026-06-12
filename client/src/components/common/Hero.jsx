@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-
+import { toast } from "react-toastify";
 const Hero = () => {
   return (
     <section className="bg-[#F8F5EF] py-12 min-h-[calc(100vh-80px)] flex items-center">
@@ -76,23 +76,33 @@ const Hero = () => {
               Explore Products
             </Link>
 
-            <button
-              className="
-                border-2
-                border-green-700
-                text-green-700
-                px-8
-                py-4
-                rounded-2xl
-                font-semibold
-                hover:bg-green-700
-                hover:text-white
-                transition-all
-                duration-300
-              "
-            >
-              Become a Seller
-            </button>
+<button
+  onClick={() =>
+    toast.info(
+      "🚀 Seller registrations are coming soon! Stay tuned for updates.",
+      {
+        position: "top-right",
+        autoClose: 3000,
+      }
+    )
+  }
+  className="
+    border-2
+    border-green-700
+    text-green-700
+    px-8
+    py-4
+    rounded-2xl
+    font-semibold
+    hover:bg-green-700
+    hover:text-white
+    transition-all
+    duration-300
+    cursor-pointer
+  "
+>
+  Become a Seller
+</button>
 
           </div>
 
