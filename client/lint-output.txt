@@ -1,0 +1,81 @@
+
+> client@0.0.0 lint
+> eslint .
+
+
+C:\Users\Rahul\OneDrive\Desktop\CraftAI\client\src\context\AuthContext.jsx
+  40:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\Rahul\OneDrive\Desktop\CraftAI\client\src\context\CartContext.jsx
+  70:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+C:\Users\Rahul\OneDrive\Desktop\CraftAI\client\src\pages\ProductDetails.jsx
+  29:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  27 |
+  28 |   useEffect(() => {
+> 29 |     fetchProduct();
+     |     ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  30 |   }, [fetchProduct]);
+  31 |
+  32 |   const handleOrder = () => {  react-hooks/set-state-in-effect
+
+C:\Users\Rahul\OneDrive\Desktop\CraftAI\client\src\pages\admin\Dashboard.jsx
+  83:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  81 |
+  82 |   useEffect(() => {
+> 83 |     fetchStats();
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  84 |     fetchProducts();
+  85 |   }, [fetchStats, fetchProducts]);
+  86 |  react-hooks/set-state-in-effect
+
+C:\Users\Rahul\OneDrive\Desktop\CraftAI\client\src\pages\admin\EditProducts.jsx
+  48:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  46 |
+  47 |   useEffect(() => {
+> 48 |     fetchProduct();
+     |     ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  49 |   }, [fetchProduct]);
+  50 |
+  51 |   const handleChange = (e) => {  react-hooks/set-state-in-effect
+
+C:\Users\Rahul\OneDrive\Desktop\CraftAI\client\src\pages\admin\ManageProducts.jsx
+  53:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  51 |
+  52 |   useEffect(() => {
+> 53 |     fetchProducts();
+     |     ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  54 |   }, [fetchProducts]);
+  55 |
+  56 |   const openDeleteModal = (product) => {  react-hooks/set-state-in-effect
+
+Γ£û 6 problems (6 errors, 0 warnings)
+

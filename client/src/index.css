@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+*{
+  box-sizing: border-box;
+  /* margin: 0;
+  padding: 0; */
+  /* outline: 1px solid red ; */
+}
+
+:root{
+  --primary:#14532D;
+  --secondary:#22C55E;
+  --bg:#f8f6f3;
+  --white:#FFFFFF;
+  --text:#1F2937;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+
+  box-sizing: border-box;
+  background: var(--bg);
+  font-family: Inter, sans-serif;
+  color: var(--text);
+}
