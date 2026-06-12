@@ -283,7 +283,7 @@ const navigate = useNavigate();
                 Support artisans. Preserve heritage.
               </p>
 
-              <button onClick={navigate("/products")} className="mt-10 bg-white text-green-700 px-10 py-4 rounded-2xl font-bold">
+              <button  onClick={() => navigate("/products")} className="mt-10 bg-white text-green-700 px-10 py-4 cursor-pointer rounded-2xl font-bold">
                 Shop Now
               </button>
             </div>
