@@ -226,17 +226,12 @@ const Footer = () => {
             <h4 className="text-xl font-bold mb-6">Quick Links</h4>
 
             <ul className="space-y-4 text-gray-300">
-              <li onClick={() => navigate("/")}>Home</li>
-
-              <li onClick={() => navigate("/products")}>Products</li>
-
-              <li onClick={() => navigate("/about")}>About Us</li>
-
-              <li onClick={() => navigate("/contact")}>Contact</li>
-
-              <li onClick={() => navigate("/wishlist")}>Wishlist</li>
-
-              <li onClick={() => navigate("/cart")}>Cart</li>
+              <li classname="cursor-pointer" onClick={() => navigate("/")}>Home</li>o
+              <li classname="cursor-pointer"  onClick={() => navigate("/products")}>Products</li>o
+              <li classname="cursor-pointer"  onClick={() => navigate("/about")}>About Us</li>o
+              <li classname="cursor-pointer"  onClick={() => navigate("/contact")}>Contact</li>o
+              <li classname="cursor-pointer"  onClick={() => navigate("/wishlist")}>Wishlist</li>o
+              <li classname="cursor-pointer"  onClick={() => navigate("/cart")}>Cart</li>
             </ul>
           </motion.div>
 
