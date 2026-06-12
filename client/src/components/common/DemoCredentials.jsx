@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {  FaShieldAlt,  FaCopy,  FaTimes,  FaChevronDown,} from "react-icons/fa";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const DemoAdminPopup = () => {
   const [open, setOpen] = useState(false);
@@ -132,12 +133,12 @@ const DemoAdminPopup = () => {
               </div>
 
               {/* Login Button */}
-              <a
-                href="/admin/login"
+              <Link
+                to="admin/login"
                 className="block mt-8 text-center bg-green-700 hover:bg-green-800 text-white py-3 rounded-2xl font-semibold transition"
               >
                 Go to Admin Login
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
         )}
