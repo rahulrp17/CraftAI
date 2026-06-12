@@ -28,6 +28,104 @@ import Loader from "./components/common/Loader";
 import { CartProvider } from "./context/CartContext";
 import { AuthProvider } from "./context/AuthContext";
 import CookieConsent from "./components/common/CookieConsent";
+import { useScrollToTop } from "./hooks/useScrollToTop";
+
+function AppContent() {
+  useScrollToTop();
+  
+  return (
+    <>
+      <Navbar />
+
+      <AIChat />
+
+      <Routes>
+        {/* Customer Routes */}
+        <Route path="/" element={<Home />} />
+
+        <Route path="/products" element={<Products />} />
+
+        <Route path="/products/:id" element={<ProductDetails />} />
+
+        <Route path="/wishlist" element={<Wishlist />} />
+
+        <Route path="/about" element={<About />} />
+
+        <Route path="/contact" element={<Contact />} />
+
+        <Route path="/faqs" element={<FAQs />} />
+
+        <Route path="/shipping-policy" element={<ShippingPolicy />} />
+
+        <Route path="/returns-refunds" element={<ReturnsRefunds />} />
+
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
+        <Route path="/terms-conditions" element={<TermsConditions />} />
+
+        {/* Admin */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/add-product"
+          element={
+            <ProtectedRoute>
+              <AddProduct />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/products"
+          element={
+            <ProtectedRoute>
+              <ManageProducts />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/manage-products"
+          element={
+            <ProtectedRoute>
+              <ManageProducts />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/admin/edit/:id"
+          element={
+            <ProtectedRoute>
+              <EditProducts />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Cart */}
+        <Route path="/cart" element={<CartPage />} />
+
+        <Route path="/checkout" element={<Checkout />} />
+      </Routes>
+
+      <ToastContainer position="top-right" autoClose={3000} />
+
+      <CookieConsent />
+
+      <Footer />
+    </>
+  );
+}
+
 
 function App() {
   const [appReady, setAppReady] = useState(false);
@@ -62,93 +160,7 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <CartProvider>
-          <Navbar />
-
-          <AIChat />
-
-          <Routes>
-            {/* Customer Routes */}
-            <Route path="/" element={<Home />} />
-
-            <Route path="/products" element={<Products />} />
-
-            <Route path="/products/:id" element={<ProductDetails />} />
-
-            <Route path="/wishlist" element={<Wishlist />} />
-
-            <Route path="/about" element={<About />} />
-
-            <Route path="/contact" element={<Contact />} />
-
-            <Route path="/faqs" element={<FAQs />} />
-
-            <Route path="/shipping-policy" element={<ShippingPolicy />} />
-
-            <Route path="/returns-refunds" element={<ReturnsRefunds />} />
-
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-
-            <Route path="/terms-conditions" element={<TermsConditions />} />
-
-            {/* Admin */}
-            <Route path="/admin/login" element={<AdminLogin />} />
-
-            <Route
-              path="/admin/dashboard"
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/admin/add-product"
-              element={
-                <ProtectedRoute>
-                  <AddProduct />
-                </ProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/admin/products"
-              element={
-                <ProtectedRoute>
-                  <ManageProducts />
-                </ProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/admin/manage-products"
-              element={
-                <ProtectedRoute>
-                  <ManageProducts />
-                </ProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/admin/edit/:id"
-              element={
-                <ProtectedRoute>
-                  <EditProducts />
-                </ProtectedRoute>
-              }
-            />
-
-            {/* Cart */}
-            <Route path="/cart" element={<CartPage />} />
-
-            <Route path="/checkout" element={<Checkout />} />
-          </Routes>
-
-          <ToastContainer position="top-right" autoClose={3000} />
-
-          <CookieConsent />
-
-          <Footer />
+          <AppContent />
         </CartProvider>
       </AuthProvider>
     </BrowserRouter>

@@ -226,12 +226,12 @@ const Footer = () => {
             <h4 className="text-xl font-bold mb-6">Quick Links</h4>
 
             <ul className="space-y-4 text-gray-300">
-              <li classname="cursor-pointer" onClick={() => navigate("/")}>Home</li>o
-              <li classname="cursor-pointer"  onClick={() => navigate("/products")}>Products</li>o
-              <li classname="cursor-pointer"  onClick={() => navigate("/about")}>About Us</li>o
-              <li classname="cursor-pointer"  onClick={() => navigate("/contact")}>Contact</li>o
-              <li classname="cursor-pointer"  onClick={() => navigate("/wishlist")}>Wishlist</li>o
-              <li classname="cursor-pointer"  onClick={() => navigate("/cart")}>Cart</li>
+              <li className="hover:text-green-400 transition cursor-pointer" onClick={() => navigate("/")} >Home</li>
+              <li className="hover:text-green-400 transition cursor-pointer" onClick={() => navigate("/products")} >Products</li>
+              <li className="hover:text-green-400 transition cursor-pointer" onClick={() => navigate("/about")} >About Us</li>
+              <li className="hover:text-green-400 transition cursor-pointer" onClick={() => navigate("/contact")} >Contact</li>
+              <li className="hover:text-green-400 transition cursor-pointer" onClick={() => navigate("/wishlist")} >Wishlist</li>
+              <li className="hover:text-green-400 transition cursor-pointer" onClick={() => navigate("/cart")} >Cart</li>
             </ul>
           </motion.div>
 
