@@ -8,7 +8,7 @@ const AIChat = () => {
   const [open, setOpen] = useState(false);
 
   const [input, setInput] = useState("");
-  const backendUrl = useAuth();
+  const {backendUrl} = useAuth();
   const [loading, setLoading] = useState(false);
 
   const [messages, setMessages] = useState([
