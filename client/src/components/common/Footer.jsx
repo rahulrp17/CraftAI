@@ -226,35 +226,17 @@ const Footer = () => {
             <h4 className="text-xl font-bold mb-6">Quick Links</h4>
 
             <ul className="space-y-4 text-gray-300">
-              <li>
-                <a href="/" className="hover:text-green-400 transition">
-                  Home
-                </a>
-              </li>
+              <li onClick={() => navigate("/")}>Home</li>
 
-              <li>
-                <a href="/products" className="hover:text-green-400 transition">
-                  Products
-                </a>
-              </li>
+              <li onClick={() => navigate("/products")}>Products</li>
 
-              <li>
-                <a href="/about" className="hover:text-green-400 transition">
-                  About Us
-                </a>
-              </li>
+              <li onClick={() => navigate("/about")}>About Us</li>
 
-              <li>
-                <a href="/contact" className="hover:text-green-400 transition">
-                  Contact
-                </a>
-              </li>
+              <li onClick={() => navigate("/contact")}>Contact</li>
 
-              <li>
-                <a href="/wishlist" className="hover:text-green-400 transition">
-                  Wishlist
-                </a>
-              </li>
+              <li onClick={() => navigate("/wishlist")}>Wishlist</li>
+
+              <li onClick={() => navigate("/cart")}>Cart</li>
             </ul>
           </motion.div>
 
@@ -345,11 +327,17 @@ const Footer = () => {
                 Returns & Refunds
               </li>
 
-              <li onClick={() => navigate("/privacy-policy")} className="hover:text-green-400 transition cursor-pointer">
+              <li
+                onClick={() => navigate("/privacy-policy")}
+                className="hover:text-green-400 transition cursor-pointer"
+              >
                 Privacy Policy
               </li>
 
-              <li onClick={() => navigate("/terms-conditions")} className="hover:text-green-400 transition cursor-pointer">
+              <li
+                onClick={() => navigate("/terms-conditions")}
+                className="hover:text-green-400 transition cursor-pointer"
+              >
                 Terms & Conditions
               </li>
             </ul>
