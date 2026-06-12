@@ -8,7 +8,7 @@ const AIChat = () => {
   const [open, setOpen] = useState(false);
 
   const [input, setInput] = useState("");
-  const {backendUrl} = useAuth();
+const { backendUrl } = useAuth();
   const [loading, setLoading] = useState(false);
 
   const [messages, setMessages] = useState([
@@ -109,7 +109,7 @@ const AIChat = () => {
 
       {open && (
         <div
-          className="  fixed  bottom-24  right-6  w-[300px]  h-[400px]  lg:w-[380px]  lg:h-[600px]  z-[999]  bg-white  rounded-3xl  shadow-2xl  overflow-hidden  flex  flex-col"
+          className="  fixed  bottom-24  right-6  w-[330px]  h-[500px]  lg:w-[380px]  lg:h-[600px]  z-[999]  bg-white  rounded-3xl  shadow-2xl  overflow-hidden  flex  flex-col"
         >
           {/* Header */}
 
@@ -217,6 +217,13 @@ const AIChat = () => {
               >
                 Decor
               </button>
+
+              <button
+                onClick={() => setInput("Fashion ")}
+                className="  text-xs  px-3  py-2  rounded-full  bg-green-100  whitespace-nowrap"
+              >
+                Fashion
+              </button>
             </div>
           </div>
 
@@ -230,7 +237,7 @@ const AIChat = () => {
               onKeyDown={handleKeyDown}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask CraftAI..."
-              className="  flex-1  border  rounded-xl  px-4  py-3  outline-none"
+              className="  flex w-60  border lg:flex-1  rounded-xl border-green-300  px-4  py-3  outline-none"
             />
 
             <button
