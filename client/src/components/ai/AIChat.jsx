@@ -3,12 +3,12 @@ import axios from "axios";
 import { Bot, Send, X, Sparkles, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { UseAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 const AIChat = () => {
   const [open, setOpen] = useState(false);
 
   const [input, setInput] = useState("");
-  const backendUrl = UseAuth();
+  const backendUrl = useAuth();
   const [loading, setLoading] = useState(false);
 
   const [messages, setMessages] = useState([
