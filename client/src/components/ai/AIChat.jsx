@@ -3,11 +3,12 @@ import axios from "axios";
 import { Bot, Send, X, Sparkles, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { UseAuth } from "../../context/AuthContext";
 const AIChat = () => {
   const [open, setOpen] = useState(false);
 
   const [input, setInput] = useState("");
-
+  const backendUrl = UseAuth();
   const [loading, setLoading] = useState(false);
 
   const [messages, setMessages] = useState([
@@ -42,7 +43,7 @@ const AIChat = () => {
     try {
       setLoading(true);
 
-      const res = await axios.post("http://localhost:5000/api/ai/chat", {
+      const res = await axios.post(`${backendUrl}/api/ai/chat`, {
         message: currentMessage,
       });
 
