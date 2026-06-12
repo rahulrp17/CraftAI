@@ -30,7 +30,7 @@ const Navbar = () => {
           />
 
           <div className="leading-none">
-            <h1 className="text-2xl font-black font-serif text-[#ab8455]">
+            <h1 className="text-2xl font-black font-serif text-[#a58660]">
               Craft<span className="text-green-800">AI</span>
             </h1>
 
