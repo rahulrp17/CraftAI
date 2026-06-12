@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import Navbar from "../components/common/Navbar";
 import { Heart, ShieldCheck, Truck, Users } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 // import wood from "../assets/images/wood.png";
 // import clay from "../assets/images/clay.png";
 // import fashion from "../assets/images/fashion.png";
@@ -48,6 +50,8 @@ const features = [
 ];
 
 const About = () => {
+const navigate = useNavigate();
+
   return (
     <>
       <Navbar />
@@ -279,7 +283,7 @@ const About = () => {
                 Support artisans. Preserve heritage.
               </p>
 
-              <button className="mt-10 bg-white text-green-700 px-10 py-4 rounded-2xl font-bold">
+              <button onClick={navigate("/products")} className="mt-10 bg-white text-green-700 px-10 py-4 rounded-2xl font-bold">
                 Shop Now
               </button>
             </div>
