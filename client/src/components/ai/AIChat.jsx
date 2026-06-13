@@ -110,7 +110,7 @@ const AIChat = () => {
             ease: "easeInOut",
           }}
           onClick={() => setOpen(!open)}
-          className="   z-50  bg-green-700  hover:bg-green-800  text-white  p-3  sm:p-4  rounded-full  cursor-pointer  shadow-2xl  hover:scale-110  transition-all  duration-300  flex  items-center  justify-center"
+          className="     bg-green-700  hover:bg-green-800  text-white  p-3  sm:p-4  rounded-full  cursor-pointer  shadow-2xl  hover:scale-110  transition-all  duration-300  flex  items-center  justify-center"
         >
           <Bot className="  w-6 h-6  sm:w-7 sm:h-7" />
         </button>
