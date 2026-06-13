@@ -254,7 +254,7 @@ const Products = () => {
 
                     <button
                       onClick={() => toggleWishlist(p)}
-                      className=" absolute top-3 right-3 bg-white p-2 rounded-full shadow-lg "
+                      className=" absolute top-3 right-3 bg-white p-2 rounded-full shadow-lg cursor-pointer "
                     >
                       <Heart
                         size={18}
@@ -290,7 +290,7 @@ const Products = () => {
                     <div className="flex flex-col sm:flex-row gap-2 mt-5">
                       <button
                         onClick={() => setSelected(p)}
-                        className=" flex-1 bg-green-50 hover:bg-green-100 text-green-700 py-3 rounded-xl transition font-medium text-sm "
+                        className=" flex-1 bg-green-50 cursor-pointer hover:bg-green-100 text-green-700 py-3 rounded-xl transition font-medium text-sm "
                       >
                         Quick View
                       </button>
@@ -298,7 +298,7 @@ const Products = () => {
                       <motion.button
                         whileTap={{ scale: 0.95 }}
                         onClick={() => handleAdd(p)}
-                        className=" flex-1 bg-green-700 hover:bg-green-800 text-white py-3 rounded-xl transition font-medium text-sm "
+                        className=" flex-1 bg-green-700 cursor-pointer hover:bg-green-800 text-white py-3 rounded-xl transition font-medium text-sm "
                       >
                         Add Cart
                       </motion.button>
@@ -343,7 +343,7 @@ const Products = () => {
 
                   <button
                     onClick={() => navigate(`/products/${selected._id}`)}
-                    className="w-full bg-green-700 text-white py-2 rounded-xl mt-3"
+                    className="w-full bg-green-700 cursor-pointer text-white py-2 rounded-xl mt-3"
                   >
                     Buy Now
                   </button>

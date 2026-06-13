@@ -36,39 +36,54 @@ const ProductDetails = () => {
       return;
     }
 
-    const orderId = `CRAFT-${Date.now()}`;
+    const orderId = `CRAFTAI-${Date.now()}`;
 
-    const total = product.price * quantity;
+    const subtotal = product.price * quantity;
+    const delivery = 0;
+    const total = subtotal + delivery;
 
-    const date = new Date().toLocaleString("en-IN");
+    const date = new Date().toLocaleString("en-IN", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    });
 
     const message = `
-ORDER INVOICE
-
-Order ID: ${orderId}
-Date: ${date}
+🧾 *New Order*
 
 ━━━━━━━━━━━━━━━━━━━━━━
+🏷 Order ID: ${orderId}
+📅 Date: ${date}
+━━━━━━━━━━━━━━━━━━━━━━
 
-Customer Name: ${name}
+👤 *CUSTOMER DETAILS*
+Name: ${name}
 Phone: ${phone}
 
-Address:
+📍 Address:
 ${address}
 
 ━━━━━━━━━━━━━━━━━━━━━━
+🛍 *ITEM DETAILS*
 
-Product: ${product.title}
-Category: ${product.category}
-
-Quantity: ${quantity}
-Price: ₹${product.price}
+1. ${product.title}
+   Qty: ${quantity}
+   Price: ₹${product.price}
+   Subtotal: ₹${subtotal}
 
 ━━━━━━━━━━━━━━━━━━━━━━
 
+💰 *PAYMENT SUMMARY*
+Subtotal: ₹${subtotal}
+Delivery: ${delivery === 0 ? "FREE" : `₹${delivery}`}
 Total: ₹${total}
 
-Thank you for shopping with CraftAI ❤️
+━━━━━━━━━━━━━━━━━━━━━━
+🙏 Thank you for shopping with CraftAI!
+✨ Handmade with love
 `;
 
     const whatsappUrl = `https://wa.me/919342830199?text=${encodeURIComponent(
@@ -76,6 +91,8 @@ Thank you for shopping with CraftAI ❤️
     )}`;
 
     window.open(whatsappUrl, "_blank");
+
+    
 
     navigate("/");
   };
@@ -115,12 +132,12 @@ Thank you for shopping with CraftAI ❤️
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-white rounded-3xl h-[550px]  shadow-md overflow-hidden"
+              className="bg-white rounded-3xl lg:h-[550px] sm:h-[300px] shadow-md overflow-hidden"
             >
               <img
                 src={product.image}
                 alt={product.title}
-                className="w-full h-[550px] object-fill hover:scale-105 transition duration-500"
+                className="w-full lg:h-[550px] sm:h[300px] object-fill hover:scale-105 transition duration-500"
               />
             </motion.div>
 
@@ -237,7 +254,7 @@ Thank you for shopping with CraftAI ❤️
               {/* BUTTON */}
               <button
                 onClick={handleOrder}
-                className="  w-full  mt-6  py-2  rounded-xl  bg-green-700  hover:bg-green-800  text-white  font-semibold  transition"
+                className="  w-full  mt-6  py-2 cursor-pointer  rounded-xl  bg-green-700  hover:bg-green-800  text-white  font-semibold  transition"
               >
                 Buy Now via WhatsApp
               </button>

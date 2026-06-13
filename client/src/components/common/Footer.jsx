@@ -140,9 +140,10 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-3xl font-black tracking-tight text-white">
-              Craft<span className="text-green-700">AI</span>
-            </span>
+            <h1 className="text-3xl font-black font-serif text-[#a58660]">
+              Craft
+              <span className="text-green-800">AI</span>
+            </h1>
 
             <p className="mt-5 text-gray-300 leading-relaxed">
               CraftAI connects passionate artisans with customers who appreciate
@@ -223,7 +224,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <h4 className="text-xl font-bold mb-6">Quick Links</h4>
+            <h4 className="text-xl text-green-700 font-bold mb-6">Quick Links</h4>
 
             <div className="flex flex-col gap-3">
               <Link
@@ -273,7 +274,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h4 className="text-xl font-bold mb-6">Categories</h4>
+            <h4 className="text-xl text-green-700 font-bold mb-6">Categories</h4>
 
             <div className="flex flex-col gap-3">
               <Link
@@ -328,7 +329,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            <h4 className="text-xl font-bold mb-6">Customer Support</h4>
+            <h4 className="text-xl text-green-700 font-bold mb-6">Customer Support</h4>
 
             <div className="flex flex-col gap-3">
               <Link

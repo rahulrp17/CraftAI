@@ -18,7 +18,7 @@ const Checkout = () => {
       return;
     }
 
-    const orderId = "CRAFT-" + Date.now();
+    const orderId = "CRAFTAI-" + Date.now();
 
     const date = new Date().toLocaleString("en-IN", {
       dateStyle: "medium",

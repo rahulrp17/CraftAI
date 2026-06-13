@@ -44,7 +44,7 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-xl border-b border-green-100 shadow-sm">
+    <header className="fixed top-0 w-full z-50 bg-white/60  border-b border-green-100 ">
       <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
         {/* LOGO */}
         <Link to="/" className="flex items-center gap-3 group">
@@ -81,9 +81,10 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.path}
+                  
                   className={`text-sm font-medium transition ${
                     isActive
-                      ? "text-green-700"
+                      ? "text-green-700 border-b-3 border-green-700 transition duration-300 "
                       : "text-gray-700 hover:text-green-700"
                   }`}
                 >
@@ -103,7 +104,7 @@ const Navbar = () => {
                     to={link.path}
                     className={`text-sm font-semibold transition ${
                       location.pathname === link.path
-                        ? "text-green-700"
+                        ? "text-green-700   border-b-3 border-green-700 transition duration-300 "
                         : "text-gray-700 hover:text-green-700"
                     }`}
                   >
