@@ -99,7 +99,7 @@ const AIChat = () => {
           duration: 1.5,
           ease: "easeInOut",
         }}
-        className="  fixed  bottom-4  right-6  sm:bottom-5  sm:right-5  md:bottom-6  md:right-6  z-50"
+        className="  fixed  bottom-4  right-6  sm:bottom-5  sm:right-25  md:bottom-6  md:right-6  z-50"
       >
         <button
           // initial={{ y: 0 }}
