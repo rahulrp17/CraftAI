@@ -4,12 +4,13 @@ import { BACKEND_URL } from "../utils/authConstants";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const storedToken = localStorage.getItem("token");
+
+  const [token, setToken] = useState(storedToken || "");
   const [user, setUser] = useState(null);
 
-  const [token, setToken] = useState(localStorage.getItem("token") || "");
-
   const login = (userData, jwtToken) => {
-    setUser(userData);
+    setUser(userData || null);
     setToken(jwtToken);
 
     localStorage.setItem("token", jwtToken);
@@ -22,12 +23,15 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("token");
   };
 
+  const isAdmin = !!token;
+
   return (
     <AuthContext.Provider
       value={{
         backendUrl: BACKEND_URL,
         user,
         token,
+        isAdmin,
         login,
         logout,
       }}

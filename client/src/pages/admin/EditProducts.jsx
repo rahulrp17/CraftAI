@@ -4,7 +4,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import Navbar from "../../components/common/Navbar";
 import { useAuth } from "../../context/AuthContext";
-
+import {toast} from "react-toastify";
 const categories = [
   "Handmade Gifts",
   "Home Decor",
@@ -40,7 +40,7 @@ const EditProducts = () => {
       setFormData(res.data.product || res.data);
     } catch (error) {
       console.log(error);
-      alert("Failed to fetch product");
+      toast.error("Failed to fetch product");
     }
   }, [id, backendUrl]);
 
@@ -83,14 +83,11 @@ const EditProducts = () => {
         },
       });
 
-      navigate("/admin/products", {
-        state: {
-          message: "✅ Product Updated Successfully",
-        },
-      });
+      toast.success("Product updated successfully");
+      navigate("/admin/dashboard");
     } catch (error) {
       console.log(error);
-      alert("Failed to update product");
+      toast.error("Failed to update product");
     } finally {
       setLoading(false);
     }

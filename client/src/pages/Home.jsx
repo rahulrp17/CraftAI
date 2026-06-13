@@ -23,6 +23,8 @@ const Home = () => {
         .get(`${backendUrl}/api/products`)
         .then((res) => setProducts(res.data));
     }
+    console.log("page rendering");
+    
   }, [backendUrl]);
   return (
     <>

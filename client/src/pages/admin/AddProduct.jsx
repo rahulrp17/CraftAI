@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
 import Navbar from "../../components/common/Navbar";
 import { useAuth } from "../../context/AuthContext";
+import { toast } from "react-toastify";
 const categories = [
   "Handmade Gifts",
   "Home Decor",
@@ -16,7 +17,7 @@ const categories = [
 ];
 
 const AddProduct = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { backendUrl } = useAuth();
   const [uploading, setUploading] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -50,33 +51,85 @@ const AddProduct = () => {
 
       const token = localStorage.getItem("token");
 
-      const res = await axios.post(
-        `${backendUrl}/api/products/upload`,
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
+      const res = await axios.post(`${backendUrl}/api/products/upload`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
       setImageUrl(res.data.imageUrl);
-
-      alert("✅ Image Uploaded Successfully");
+      showCraftAISuccessToast("Image uploaded successfully!");
     } catch (error) {
       console.error(error);
-      alert("❌ Image Upload Failed");
+      toast.error("Failed to upload image");
     } finally {
       setUploading(false);
     }
+  };
+
+  const showCraftAISuccessToast = (message) => {
+    toast(
+      ({ closeToast }) => (
+        <motion.div
+          initial={{ opacity: 0, y: 30, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.4 }}
+          className="  bg-white  rounded-3xl  shadow-2xl  border border-green-100  p-4  flex items-center gap-4  min-w-[320px]"
+        >
+          <button
+            className="absolute top-2 right-2 w-8 h-8 rounded-full hover:bg-gray-200 flex items-center justify-center text-gray-600 transition duration-300"
+            onClick={closeToast}
+          >
+            X
+          </button>
+
+          {/* CraftAI Logo */}
+          <motion.img
+            initial={{ rotate: -10 }}
+            animate={{ rotate: 0 }}
+            transition={{ duration: 0.5 }}
+            src="https://res.cloudinary.com/dwqvdqtgu/image/upload/v1781193627/ChatGPT_Image_Jun_11_2026_09_29_57_PM_jirhiy.png"
+            alt="CraftAI"
+            className="w-14 h-14 rounded-2xl object-cover shadow-md"
+          />
+
+          {/* Content */}
+          <div className="flex-1">
+            <h3 className="font-bold text-green-900">CraftAI Success</h3>
+
+            <p className="text-sm text-gray-600 mt-1">{message}</p>
+          </div>
+
+          {/* Checkmark */}
+          <motion.div
+            animate={{
+              scale: [1, 1.15, 1],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 1.5,
+            }}
+            className="  w-10 h-10  rounded-full  bg-green-100  flex items-center justify-center  text-green-700  font-bold  text-lg"
+          >
+            ✓
+          </motion.div>
+        </motion.div>
+      ),
+      {
+        autoClose: 3000,
+        closeButton: false,
+        hideProgressBar: true,
+        className: "!bg-transparent !shadow-none !p-0",
+      },
+    );
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!imageUrl) {
-      alert("Please upload an image first");
+      toast.error("Please upload an image first");
       return;
     }
 
@@ -98,14 +151,21 @@ const AddProduct = () => {
         },
       );
 
-      navigate("/admin/dashboard", {
-        state: {
-          message: "✅ Product Added Successfully",
-        },
-      });
+      showCraftAISuccessToast(
+        `"&${formData.title}&" product added successfully!`,
+      );
+      setFormData({
+        title: "",
+        description: "",
+        price: "",
+        category: "",
+        stock: "",
+        
+      })
+      setImageUrl("");
     } catch (error) {
       console.error(error);
-      alert("Failed to Add Product");
+      toast.error("Failed to add product");
     } finally {
       setLoading(false);
     }
@@ -206,9 +266,7 @@ const AddProduct = () => {
                   Product Image
                 </label>
 
-                <label
-                  className="  flex  flex-col  items-center  justify-center  border-2  border-dashed  border-green-300  rounded-2xl  p-6  cursor-pointer  hover:bg-green-50  transition"
-                >
+                <label className="  flex  flex-col  items-center  justify-center  border-2  border-dashed  border-green-300  rounded-2xl  p-6  cursor-pointer  hover:bg-green-50  transition">
                   <span className="text-3xl">📷</span>
 
                   <p className="mt-2 text-sm text-gray-600">
@@ -236,13 +294,7 @@ const AddProduct = () => {
                   <img
                     src={imageUrl}
                     alt="Preview"
-                    className="
-                      w-40
-                      h-40
-                      object-cover
-                      rounded-2xl
-                      shadow-md
-                    "
+                    className="  w-40  h-40  object-cover  rounded-2xl  shadow-md"
                   />
                 </div>
               )}
@@ -251,19 +303,7 @@ const AddProduct = () => {
               <button
                 type="submit"
                 disabled={loading || uploading}
-                className="
-                  w-full
-                  bg-green-700
-                  hover:bg-green-800
-                  text-white
-                  py-3
-                  rounded-2xl
-                  font-semibold
-                  shadow-lg
-                  transition
-                  disabled:opacity-60
-                  disabled:cursor-not-allowed
-                "
+                className="  w-full  bg-green-700  hover:bg-green-800  text-white  py-3  rounded-2xl  font-semibold  shadow-lg  transition  disabled:opacity-60  disabled:cursor-not-allowed"
               >
                 {loading ? "Adding Product..." : "Add Product"}
               </button>

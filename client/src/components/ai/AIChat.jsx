@@ -8,7 +8,7 @@ const AIChat = () => {
   const [open, setOpen] = useState(false);
 
   const [input, setInput] = useState("");
-const { backendUrl } = useAuth();
+  const { backendUrl } = useAuth();
   const [loading, setLoading] = useState(false);
 
   const [messages, setMessages] = useState([
@@ -96,26 +96,23 @@ const { backendUrl } = useAuth();
         rel="noopener noreferrer"
         initial={{ y: 0 }}
         animate={{ y: [0, -10, 0] }}
-        transition={{ repeat: Infinity, duration: 1.5 }}
-        className="fixed bottom-2 right-2 lg:bottom-6 z-50"
+        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+        className="fixed bottom-1 right-6 lg:bottom-6 z-50"
       >
         <button
           onClick={() => setOpen(!open)}
-          className="  fixed  bottom-2  right-2   lg:bottom-6  z-50  bg-green-700  text-white  p-4  rounded-full  cursor-pointer  animate-spring  duration-300  scale-100    shadow-  hover:scale-110  transition-all">
+          className="  fixed  bottom-1  right-2   lg:bottom-6  z-50  bg-green-700  text-white  p-4  rounded-full  cursor-pointer  animate-spring  duration-300  scale-100    shadow-  hover:scale-110  transition-all"
+        >
           <Bot size={28} />
         </button>
       </motion.div>
       {/* Chat Window */}
 
       {open && (
-        <div
-          className="  fixed  bottom-24  right-6  w-[330px]  h-[500px]  lg:w-[380px]  lg:h-[600px]  z-[999]  bg-white  rounded-3xl  shadow-2xl  overflow-hidden  flex  flex-col"
-        >
+        <div className="  fixed  bottom-24  right-6  w-[330px]  h-[500px]  lg:w-[380px]  lg:h-[600px]  z-[999]  bg-white  rounded-3xl  shadow-2xl  overflow-hidden  flex  flex-col">
           {/* Header */}
 
-          <div
-            className="  bg-gradient-to-r  from-green-700  to-emerald-600  text-white  p-4  flex  justify-between  items-center"
-          >
+          <div className="  bg-gradient-to-r  from-green-700  to-emerald-600  text-white  p-4  flex  justify-between  items-center">
             <div className="flex items-center gap-2">
               <Sparkles size={20} />
 
@@ -132,9 +129,7 @@ const { backendUrl } = useAuth();
 
           {/* Messages */}
 
-          <div
-            className="  flex-1  overflow-y-auto  p-4  bg-[#f8f5ef]  space-y-3"
-          >
+          <div className="  flex-1  overflow-y-auto  p-4  bg-[#f8f5ef]  space-y-3">
             {messages.map((msg, index) => (
               <div key={index}>
                 {msg.type === "products" ? (
@@ -163,7 +158,8 @@ const { backendUrl } = useAuth();
 
                           <Link
                             to={`/products/${product._id}`}
-                            className=" block mt-2 text-center bg-green-700 text-white py-2 rounded-xl    "                >
+                            className=" block mt-2 text-center bg-green-700 text-white py-2 rounded-xl    "
+                          >
                             View Product
                           </Link>
                         </div>
@@ -229,9 +225,7 @@ const { backendUrl } = useAuth();
 
           {/* Input */}
 
-          <div
-            className="  p-3  bg-white  flex  gap-2"
-          >
+          <div className="  p-3  bg-white  flex  gap-2">
             <input
               value={input}
               onKeyDown={handleKeyDown}

@@ -13,7 +13,7 @@ import {
   FaShieldAlt,
   FaPaperPlane,
 } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, /*useNavigate */} from "react-router-dom";
 import { MdEmail } from "react-icons/md";
 import { BsStars } from "react-icons/bs";
 const Footer = () => {
@@ -25,7 +25,7 @@ const Footer = () => {
       behavior: "smooth",
     });
   };
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const handleSubscribe = (e) => {
     e.preventDefault();
 
@@ -225,14 +225,44 @@ const Footer = () => {
           >
             <h4 className="text-xl font-bold mb-6">Quick Links</h4>
 
-            <ul className="space-y-4 text-gray-300">
-              <li className="hover:text-green-400 transition cursor-pointer" onClick={() => navigate("/")} >Home</li>
-              <li className="hover:text-green-400 transition cursor-pointer" onClick={() => navigate("/products")} >Products</li>
-              <li className="hover:text-green-400 transition cursor-pointer" onClick={() => navigate("/about")} >About Us</li>
-              <li className="hover:text-green-400 transition cursor-pointer" onClick={() => navigate("/contact")} >Contact</li>
-              <li className="hover:text-green-400 transition cursor-pointer" onClick={() => navigate("/wishlist")} >Wishlist</li>
-              <li className="hover:text-green-400 transition cursor-pointer" onClick={() => navigate("/cart")} >Cart</li>
-            </ul>
+            <div className="flex flex-col gap-3">
+              <Link
+                className="hover:text-green-400 transition cursor-pointer"
+                to="/"
+              >
+                Home
+              </Link>
+              <Link
+                className="hover:text-green-400 transition cursor-pointer"
+                to="/products"
+              >
+                Products
+              </Link>
+              <Link
+                className="hover:text-green-400 transition cursor-pointer"
+                to="/about"
+              >
+                About Us
+              </Link>
+              <Link
+                className="hover:text-green-400 transition cursor-pointer"
+                to="/contact"
+              >
+                Contact
+              </Link>
+              <Link
+                className="hover:text-green-400 transition cursor-pointer"
+                to="/wishlist"
+              >
+                Wishlist
+              </Link>
+              <Link
+                className="hover:text-green-400 transition cursor-pointer"
+                to="/cart"
+              >
+                Cart
+              </Link>
+            </div>
           </motion.div>
 
           {/* Categories */}
@@ -245,49 +275,49 @@ const Footer = () => {
           >
             <h4 className="text-xl font-bold mb-6">Categories</h4>
 
-            <ul className="space-y-4 text-gray-300">
-              <li
-                onClick={() => navigate("/products")}
+            <div className="flex flex-col gap-3">
+              <Link
                 className="hover:text-green-400 transition cursor-pointer"
+                to="/products"
               >
                 Wood Craft
-              </li>
+              </Link>
 
-              <li
-                onClick={() => navigate("/products")}
+              <Link
                 className="hover:text-green-400 transition cursor-pointer"
+                to="/products"
               >
                 Pottery
-              </li>
+              </Link>
 
-              <li
-                onClick={() => navigate("/products")}
+              <Link
                 className="hover:text-green-400 transition cursor-pointer"
+                to="/products"
               >
                 Art & Paintings
-              </li>
+              </Link>
 
-              <li
-                onClick={() => navigate("/products")}
+              <Link
                 className="hover:text-green-400 transition cursor-pointer"
+                to="/products"
               >
                 Handmade Gifts
-              </li>
+              </Link>
 
-              <li
-                onClick={() => navigate("/products")}
+              <Link
                 className="hover:text-green-400 transition cursor-pointer"
+                to="/products"
               >
                 Jewellery
-              </li>
+              </Link>
 
-              <li
-                onClick={() => navigate("/products")}
+              <Link
                 className="hover:text-green-400 transition cursor-pointer"
+                to="/products"
               >
                 Fashion Design
-              </li>
-            </ul>
+              </Link>
+            </div>
           </motion.div>
 
           {/* Customer Support */}
@@ -300,42 +330,42 @@ const Footer = () => {
           >
             <h4 className="text-xl font-bold mb-6">Customer Support</h4>
 
-            <ul className="space-y-4 text-gray-300">
-              <li
-                onClick={() => navigate("/faqs")}
+            <div className="flex flex-col gap-3">
+              <Link
                 className="hover:text-green-400 transition cursor-pointer"
+                to="/faqs"
               >
                 FAQs
-              </li>
+              </Link>
 
-              <li
-                onClick={() => navigate("/shipping-policy")}
+              <Link
                 className="hover:text-green-400 transition cursor-pointer"
+                to="/shipping-policy"
               >
                 Shipping Policy
-              </li>
+              </Link>
 
-              <li
-                onClick={() => navigate("/returns-refunds")}
+              <Link
                 className="hover:text-green-400 transition cursor-pointer"
+                to="/returns-refunds"
               >
                 Returns & Refunds
-              </li>
+              </Link>
 
-              <li
-                onClick={() => navigate("/privacy-policy")}
+              <Link
                 className="hover:text-green-400 transition cursor-pointer"
+                to="/privacy-policy"
               >
                 Privacy Policy
-              </li>
+              </Link>
 
-              <li
-                onClick={() => navigate("/terms-conditions")}
+              <Link
                 className="hover:text-green-400 transition cursor-pointer"
+                to="/terms-conditions"
               >
                 Terms & Conditions
-              </li>
-            </ul>
+              </Link>
+            </div>
           </motion.div>
         </div>
 

@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../components/common/Navbar";
-
+import {toast} from "react-toastify";
 import { useAuth } from "../../context/AuthContext";
 
 const categories = [
@@ -75,7 +75,7 @@ const ManageProducts = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-
+      toast.success("Product deleted successfully");
       setProducts((prev) =>
         prev.filter((product) => product._id !== selectedProduct._id),
       );
@@ -173,7 +173,7 @@ const ManageProducts = () => {
 
           {/* Loading */}
           {loading ? (
-            <div className="text-center py-20">Loading products...</div>
+            <div className="text-center py-20 text-2xl font-bold text-green-700">Loading products...</div>
           ) : filteredProducts.length === 0 ? (
             <div
               className="  bg-white  rounded-3xl  shadow  p-12  text-center"

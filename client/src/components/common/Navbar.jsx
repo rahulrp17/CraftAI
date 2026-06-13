@@ -1,14 +1,19 @@
 import { useState } from "react";
-import { Menu, X, Heart, ShoppingCart } from "lucide-react";
+import { Menu, X, Heart, ShoppingCart, LogOut } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+
 import { useCart } from "../../context/CartContext";
+import { useAuth } from "../../context/AuthContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+
   const location = useLocation();
   const navigate = useNavigate();
+
   const { cart } = useCart();
+  const { isAdmin, logout } = useAuth();
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -17,21 +22,46 @@ const Navbar = () => {
     { name: "Contact", path: "/contact" },
   ];
 
+  const adminLinks = [
+    {
+      name: "Dashboard",
+      path: "/admin/dashboard",
+    },
+    {
+      name: "Add Product",
+      path: "/admin/add-product",
+    },
+    {
+      name: "Manage Products",
+      path: "/admin/products",
+    },
+  ];
+
+  const handleLogout = () => {
+    logout();
+    setOpen(false);
+    navigate("/");
+  };
+
   return (
     <header className="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-xl border-b border-green-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4  h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
         {/* LOGO */}
         <Link to="/" className="flex items-center gap-3 group">
           <motion.img
-            whileHover={{ rotate: -5, scale: 1.05 }}
+            whileHover={{
+              rotate: -5,
+              scale: 1.05,
+            }}
             src="https://res.cloudinary.com/dwqvdqtgu/image/upload/q_auto/f_auto/v1781193627/ChatGPT_Image_Jun_11_2026_09_29_57_PM_jirhiy.png"
             alt="CraftAI"
-            className="  h-16  w-16  rounded-2xl  object-cover    border border-green-100  bg-black  p-1"
+            className="h-16 w-16 rounded-2xl object-cover border border-green-100 bg-black p-1"
           />
 
           <div className="leading-none">
             <h1 className="text-2xl font-black font-serif text-[#a58660]">
-              Craft<span className="text-green-800">AI</span>
+              Craft
+              <span className="text-green-800">AI</span>
             </h1>
 
             <p className="text-[10px] uppercase tracking-[0.3em] text-gray-500">
@@ -40,9 +70,9 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* ================= DESKTOP / MD / LG ================= */}
+        {/* DESKTOP NAV */}
         <nav className="hidden md:flex items-center gap-8">
-          {/* TEXT LINKS (always visible on md+) */}
+          {/* CUSTOMER LINKS */}
           <div className="flex items-center gap-6">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
@@ -61,11 +91,40 @@ const Navbar = () => {
                 </Link>
               );
             })}
+
+            {/* ADMIN LINKS */}
+            {isAdmin && (
+              <>
+                <div className="h-5 w-px bg-gray-300" />
+
+                {adminLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className={`text-sm font-semibold transition ${
+                      location.pathname === link.path
+                        ? "text-green-700"
+                        : "text-gray-700 hover:text-green-700"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-xl text-sm font-medium transition"
+                >
+                  <LogOut size={16} />
+                  Logout
+                </button>
+              </>
+            )}
           </div>
 
-          {/* ICONS ONLY (md + lg) */}
-          <div className="flex items-center justify-center gap-4 ">
-            {/* CART ICON */}
+          {/* ICONS */}
+          <div className="flex items-center gap-4">
+            {/* CART */}
             <button
               onClick={() => navigate("/cart")}
               className="relative p-2 rounded-full cursor-pointer hover:bg-white/60 transition"
@@ -79,17 +138,17 @@ const Navbar = () => {
               )}
             </button>
 
-            {/* WISHLIST ICON */}
+            {/* WISHLIST */}
             <button
               onClick={() => navigate("/wishlist")}
-              className="relative p-2 cursor-pointer  hover:bg-white/60 transition"
+              className="relative p-2 cursor-pointer hover:bg-white/60 transition"
             >
               <Heart color="red" fill="red" />
             </button>
           </div>
         </nav>
 
-        {/* ================= MOBILE MENU BUTTON ================= */}
+        {/* MOBILE MENU BUTTON */}
         <button
           onClick={() => setOpen(!open)}
           className="md:hidden text-gray-800"
@@ -98,16 +157,26 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* ================= MOBILE MENU ================= */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            initial={{
+              height: 0,
+              opacity: 0,
+            }}
+            animate={{
+              height: "auto",
+              opacity: 1,
+            }}
+            exit={{
+              height: 0,
+              opacity: 0,
+            }}
             className="md:hidden bg-white border-t overflow-hidden"
           >
             <div className="flex flex-col p-5 gap-4">
+              {/* NORMAL LINKS */}
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -119,7 +188,37 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              {/* MOBILE EXTRA LINKS (TEXT) */}
+              {/* ADMIN MOBILE */}
+              {isAdmin && (
+                <>
+                  <div className="border-t border-gray-200 pt-4">
+                    <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">
+                      Admin
+                    </p>
+
+                    {adminLinks.map((link) => (
+                      <Link
+                        key={link.name}
+                        to={link.path}
+                        onClick={() => setOpen(false)}
+                        className="block py-2 text-gray-700 font-medium hover:text-green-700"
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+
+                    <button
+                      onClick={handleLogout}
+                      className="flex items-center gap-2 py-2 text-red-600 font-medium"
+                    >
+                      <LogOut size={18} />
+                      Logout
+                    </button>
+                  </div>
+                </>
+              )}
+
+              {/* CART */}
               <Link
                 to="/cart"
                 onClick={() => setOpen(false)}
@@ -128,6 +227,7 @@ const Navbar = () => {
                 Cart ({cart.length})
               </Link>
 
+              {/* WISHLIST */}
               <Link
                 to="/wishlist"
                 onClick={() => setOpen(false)}

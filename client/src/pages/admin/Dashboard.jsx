@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { Link, /* useLocation */ } from "react-router-dom";
 import Navbar from "../../components/common/Navbar";
 import { useAuth } from "../../context/AuthContext";
 import {
@@ -40,7 +40,7 @@ const fadeUp = {
 };
 
 const Dashboard = () => {
-  const location = useLocation();
+  // const location = useLocation();
   const { backendUrl } = useAuth();
   const [stats, setStats] = useState({
     totalProducts: 0,
@@ -222,7 +222,7 @@ const Dashboard = () => {
 
       <section className="min-h-screen bg-[#F8F5EF] py-30 px-5">
         <div className="max-w-7xl mx-auto">
-          {/* Success Message */}
+          {/* Success Message
           {location.state?.message && (
             <motion.div
               variants={fadeUp}
@@ -232,7 +232,7 @@ const Dashboard = () => {
             >
               {location.state.message}
             </motion.div>
-          )}
+          )} */}
 
           {/* Header */}
           <motion.div

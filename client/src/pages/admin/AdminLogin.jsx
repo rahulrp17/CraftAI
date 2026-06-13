@@ -2,46 +2,51 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
-import {  Mail,  Lock,  Eye,  EyeOff,  ShieldCheck,} from "lucide-react";
+import { Mail, Lock, Eye, EyeOff, ShieldCheck } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
   const { backendUrl } = useAuth();
-
+  const { login } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+const handleLogin = async (e) => {
+  e.preventDefault();
 
-    try {
-      setLoading(true);
+  try {
+    const res = await axios.post(
+      `${backendUrl}/api/admin/login`,
+      {
+        email,
+        password,
+      }
+    );
 
-      const res = await axios.post(
-        `${backendUrl}/api/admin/login`,
-        {
-          email,
-          password,
-        }
-      );
-
-      localStorage.setItem("token", res.data.token);
+    if (res.data.success) {
+      login(res.data.user, res.data.token);
 
       navigate("/admin/dashboard");
-    } catch (error) {
-      alert("Invalid Credentials");
-      console.error(error);
-    } finally {
-      setLoading(false);
+    } else {
+      alert("Invalid credentials");
     }
-  };
+  } catch (error) {
+    console.log(error);
+    alert("Login failed");
+  }
+  finally {
+    setLoading(false);
+  }
+};
 
   return (
-    <div className="relative min-h-screen overflow-hidden flex items-center justify-center px-4" style={{ backgroundColor: "#f8f6f3" }}>
-
+    <div
+      className="relative min-h-screen overflow-hidden flex items-center justify-center px-4"
+      style={{ backgroundColor: "#f8f6f3" }}
+    >
       {/* Animated Background */}
       <div className="absolute inset-0">
         <motion.div
@@ -80,7 +85,7 @@ const AdminLogin = () => {
         style={{
           backgroundColor: "#FFFFFF",
           borderColor: "rgba(34, 197, 94, 0.2)",
-          boxShadow: "0 10px 40px rgba(20, 83, 45, 0.08)"
+          boxShadow: "0 10px 40px rgba(20, 83, 45, 0.08)",
         }}
       >
         {/* Logo */}
@@ -113,10 +118,7 @@ const AdminLogin = () => {
         </div>
 
         {/* Form */}
-        <form
-          onSubmit={handleLogin}
-          className="space-y-6"
-        >
+        <form onSubmit={handleLogin} className="space-y-6">
           {/* Email */}
           <div className="relative">
             <Mail
@@ -135,10 +137,12 @@ const AdminLogin = () => {
               style={{
                 borderColor: "rgba(34, 197, 94, 0.3)",
                 backgroundColor: "#FFFFFF",
-                color: "#1F2937"
+                color: "#1F2937",
               }}
-              onFocus={(e) => e.target.style.borderColor = "#22C55E"}
-              onBlur={(e) => e.target.style.borderColor = "rgba(34, 197, 94, 0.3)"}
+              onFocus={(e) => (e.target.style.borderColor = "#22C55E")}
+              onBlur={(e) =>
+                (e.target.style.borderColor = "rgba(34, 197, 94, 0.3)")
+              }
             />
           </div>
 
@@ -160,25 +164,21 @@ const AdminLogin = () => {
               style={{
                 borderColor: "rgba(34, 197, 94, 0.3)",
                 backgroundColor: "#FFFFFF",
-                color: "#1F2937"
+                color: "#1F2937",
               }}
-              onFocus={(e) => e.target.style.borderColor = "#22C55E"}
-              onBlur={(e) => e.target.style.borderColor = "rgba(34, 197, 94, 0.3)"}
+              onFocus={(e) => (e.target.style.borderColor = "#22C55E")}
+              onBlur={(e) =>
+                (e.target.style.borderColor = "rgba(34, 197, 94, 0.3)")
+              }
             />
 
             <button
               type="button"
-              onClick={() =>
-                setShowPassword(!showPassword)
-              }
+              onClick={() => setShowPassword(!showPassword)}
               className="absolute right-4 top-1/2 -translate-y-1/2 hover:opacity-70"
               style={{ color: "#9CA3AF" }}
             >
-              {showPassword ? (
-                <EyeOff size={20} />
-              ) : (
-                <Eye size={20} />
-              )}
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
             </button>
           </div>
 
@@ -195,10 +195,10 @@ const AdminLogin = () => {
             className="w-full rounded-xl cursor-pointer py-3 font-semibold text-white shadow-md transition-all disabled:opacity-60"
             style={{
               backgroundColor: "#14532D",
-              boxShadow: "0 4px 12px rgba(20, 83, 45, 0.2)"
+              boxShadow: "0 4px 12px rgba(20, 83, 45, 0.2)",
             }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = "#1a6b3a"}
-            onMouseLeave={(e) => e.target.style.backgroundColor = "#14532D"}
+            onMouseEnter={(e) => (e.target.style.backgroundColor = "#1a6b3a")}
+            onMouseLeave={(e) => (e.target.style.backgroundColor = "#14532D")}
           >
             {loading ? (
               <div className="flex justify-center cursor-not-allowed items-center gap-2">
