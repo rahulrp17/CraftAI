@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import { Mail, Lock, Eye, EyeOff, ShieldCheck } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
-
+import {toast} from "react-toastify";
 const AdminLogin = () => {
   const navigate = useNavigate();
   const { backendUrl } = useAuth();
@@ -28,14 +28,14 @@ const handleLogin = async (e) => {
 
     if (res.data.success) {
       login(res.data.user, res.data.token);
-
+      toast.success("Login successful");
       navigate("/admin/dashboard");
     } else {
-      alert("Invalid credentials");
+      toast.error("Invalid credentials");
     }
   } catch (error) {
     console.log(error);
-    alert("Login failed");
+    toast.error("Login failed");
   }
   finally {
     setLoading(false);
