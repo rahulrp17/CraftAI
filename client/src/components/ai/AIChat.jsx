@@ -102,13 +102,13 @@ const AIChat = () => {
         className="  fixed  bottom-4  right-4  sm:bottom-5  sm:right-5  md:bottom-6  md:right-6  z-50"
       >
         <button
-          initial={{ y: 0 }}
-          animate={{ y: [0, -10, 0] }}
-          transition={{
-            repeat: Infinity,
-            duration: 1.5,
-            ease: "easeInOut",
-          }}
+          // initial={{ y: 0 }}
+          // animate={{ y: [0, -10, 0] }}
+          // transition={{
+          //   repeat: Infinity,
+          //   duration: 1.5,
+          //   ease: "easeInOut",
+          // }}
           onClick={() => setOpen(!open)}
           className="   z-50  bg-green-700  hover:bg-green-800  text-white  p-3  sm:p-4  rounded-full  cursor-pointer  shadow-2xl  hover:scale-110  transition-all  duration-300  flex  items-center  justify-center"
         >
