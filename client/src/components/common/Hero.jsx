@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 const Hero = () => {
   return (
-    <section className="bg-[#F8F5EF] py-12 min-h-[calc(100vh-80px)] flex items-center">
+    <section className="bg-[#F8F5EF] py-12 min-h-[calc(100vh-80px)] flex items-center overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         {/* Left Content */}

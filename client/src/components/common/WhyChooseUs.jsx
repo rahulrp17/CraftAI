@@ -56,7 +56,7 @@ const WhyChooseUs = () => {
       </div>
 
       {/* ================= STATS ================= */}
-      <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
+      <div className="max-w-5xl overflow-hidden mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
 
         {stats.map((s, i) => (
           <motion.div

@@ -49,7 +49,7 @@ const Testimonials = () => {
     name.split(" ").map((n) => n[0]).join("").toUpperCase();
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-green-50 to-white">
+    <section className="py-20 overflow-hidden px-4 bg-gradient-to-b from-green-50 to-white">
 
       {/* TITLE */}
       <div className="text-center mb-10">
