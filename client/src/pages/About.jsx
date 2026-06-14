@@ -3,10 +3,6 @@ import Navbar from "../components/common/Navbar";
 import { Heart, ShieldCheck, Truck, Users } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-// import wood from "../assets/images/wood.png";
-// import clay from "../assets/images/clay.png";
-// import fashion from "../assets/images/fashion.png";
-
 const stats = [
   {
     number: "500+",
@@ -49,27 +45,122 @@ const features = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const fadeUp = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
+
+const fadeLeft = {
+  hidden: {
+    opacity: 0,
+    x: -60,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
+
+const fadeRight = {
+  hidden: {
+    opacity: 0,
+    x: 60,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
+
 const About = () => {
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <>
       <Navbar />
 
-      <div className="bg-[#F8F5EF] min-h-screen pt-24">
-        {/* HERO */}
-        <section className="max-w-7xl mx-auto px-4 py-10">
+      <div className="relative min-h-screen overflow-hidden bg-[#F8F5EF] pt-24">
+        {/* Floating Background Blobs */}
+
+        <motion.div
+          animate={{
+            y: [0, -40, 0],
+            x: [0, 20, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+          }}
+          className="absolute top-10 -left-24 w-80 h-80 rounded-full bg-green-200/40 blur-3xl"
+        />
+
+        <motion.div
+          animate={{
+            y: [0, 40, 0],
+            x: [0, -20, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+          }}
+          className="absolute top-96 -right-20 w-96 h-96 rounded-full bg-emerald-200/40 blur-3xl"
+        />
+
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+          }}
+          className="absolute bottom-20 left-1/2 w-72 h-72 rounded-full bg-lime-200/30 blur-3xl"
+        />
+
+        {/* HERO SECTION */}
+
+        <motion.section
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          className="relative max-w-7xl mx-auto px-4 py-12"
+        >
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <span className="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold">
+            <motion.div variants={fadeLeft}>
+              <span className="inline-flex bg-green-100 text-green-700 px-5 py-2 rounded-full text-sm font-semibold shadow-sm">
                 ✨ About CraftAI
               </span>
 
-              <h1 className="text-5xl md:text-6xl font-black text-green-900 mt-6 leading-tight">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-green-900 mt-6 leading-tight">
                 Preserving
                 <span className="text-green-600"> Indian Handicrafts</span>
               </h1>
@@ -77,51 +168,159 @@ const navigate = useNavigate();
               <p className="mt-6 text-lg text-gray-600 leading-relaxed">
                 CraftAI connects talented artisans with people who appreciate
                 authentic handmade creations. Our mission is to bring
-                traditional craftsmanship into modern homes.
+                traditional craftsmanship into modern homes while empowering
+                local artists.
               </p>
+
+              <div className="mt-10 flex flex-wrap gap-4">
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    y: -3,
+                  }}
+                  whileTap={{
+                    scale: 0.95,
+                  }}
+                  onClick={() => navigate("/products")}
+                  className="bg-green-700 hover:bg-green-800 text-white px-8 py-4 rounded-2xl font-bold shadow-xl cursor-pointer"
+                >
+                  Explore Collection
+                </motion.button>
+
+                <motion.button
+                  whileHover={{
+                    scale: 1.05,
+                    y: -3,
+                  }}
+                  whileTap={{
+                    scale: 0.95,
+                  }}
+                  className="bg-white text-green-700 border border-green-200 px-8 py-4 rounded-2xl font-bold shadow-lg"
+                >
+                  Learn More
+                </motion.button>
+              </div>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 60 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              variants={fadeRight}
+              whileHover={{
+                scale: 1.02,
+              }}
+              className="relative"
             >
-              <img
+              <motion.img
+                whileHover={{
+                  scale: 1.05,
+                }}
+                transition={{
+                  duration: 0.4,
+                }}
                 src="https://images.unsplash.com/photo-1517048676732-d65bc937f952"
                 alt="Craft"
-                className="rounded-[40px] shadow-2xl"
+                className="rounded-[40px] shadow-2xl object-cover"
               />
+
+              <motion.div
+                animate={{
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                }}
+                className="absolute -bottom-6 left-3 bg-white rounded-3xl shadow-xl px-6 py-5"
+              >
+                <h3 className="text-3xl font-black text-green-700">10+</h3>
+
+                <p className="text-gray-600 text-sm">
+                  Years of Craft Excellence
+                </p>
+              </motion.div>
             </motion.div>
           </div>
-        </section>
+        </motion.section>
 
-        {/* STATS */}
-        <div className="max-w-7xl mx-auto mt-24 relative z-20 px-4">
-          <div className="grid md:grid-cols-4 gap-6">
+        {/* STATS SECTION */}
+
+        <motion.section
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          className="max-w-7xl mx-auto px-4 py-16"
+        >
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((item) => (
               <motion.div
-                whileHover={{ y: -10 }}
-                className="  bg-white/70  backdrop-blur-xl  rounded-3xl  p-8  shadow-2xl  text-center"      >
-                <h2 className="text-4xl font-black text-green-700">
+                key={item.label}
+                variants={fadeUp}
+                whileHover={{
+                  y: -12,
+                  scale: 1.03,
+                }}
+                className="
+                  bg-white/70
+                  backdrop-blur-xl
+                  rounded-[32px]
+                  p-8
+                  shadow-2xl
+                  text-center
+                  border
+                  border-white/60
+                "
+              >
+                <motion.h2
+                  initial={{
+                    opacity: 0,
+                    scale: 0.7,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    scale: 1,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.5,
+                  }}
+                  className="text-5xl font-black text-green-700"
+                >
                   {item.number}
-                </h2>
+                </motion.h2>
 
-                <p className="mt-2 text-gray-600">{item.label}</p>
+                <p className="mt-3 text-gray-600 font-medium">{item.label}</p>
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.section>
 
-        {/* STORY */}
-        <section className="max-w-7xl mx-auto py-10 px-4">
+        {/* STORY SECTION */}
+
+        <motion.section
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          className="max-w-7xl mx-auto py-12 px-4"
+        >
           <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div>
-              <span className="text-green-700 font-semibold uppercase">
+            <motion.div variants={fadeLeft}>
+              <span className="text-green-700 font-semibold uppercase tracking-widest">
                 Our Story
               </span>
 
-              <h2 className="text-5xl font-black text-green-900 mt-4">
-                Every Craft Tells A Story
+              <h2 className="text-5xl font-black text-green-900 mt-4 leading-tight">
+                Every Craft
+                <br />
+                Tells A Story
               </h2>
 
               <p className="mt-6 text-gray-600 text-lg leading-relaxed">
@@ -129,166 +328,537 @@ const navigate = useNavigate();
                 handmade products to customers who value craftsmanship,
                 tradition, and quality.
               </p>
-            </div>
-            <motion.img
-              whileHover={{ scale: 1.05 }}
-              src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b"
-              className="rounded-[40px] shadow-2xl"
-            />
-          </div>
-        </section>
 
-        {/*Artisans*/}
-        <section className="bg-white py-10">
+              <p className="mt-5 text-gray-600 text-lg leading-relaxed">
+                We believe every handcrafted piece carries the soul of its
+                creator and deserves a place in modern lifestyles.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={fadeRight}
+              whileHover={{
+                scale: 1.03,
+              }}
+              className="relative"
+            >
+              <motion.img
+                whileHover={{
+                  scale: 1.05,
+                }}
+                transition={{
+                  duration: 0.4,
+                }}
+                src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b"
+                alt="Our Story"
+                className="rounded-[40px] shadow-2xl object-cover"
+              />
+            </motion.div>
+          </div>
+        </motion.section>
+
+        {/* ARTISANS SECTION */}
+
+        <motion.section
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          className="bg-white py-16"
+        >
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-center text-5xl font-black text-green-900 mb-16">
-              Meet Our Artisans
+            <motion.div variants={fadeUp} className="text-center mb-16">
+              <span className="inline-block bg-green-100 text-green-700 px-5 py-2 rounded-full text-sm font-semibold">
+                👨‍🎨 The Faces Behind CraftAI
+              </span>
+
+              <h2 className="mt-6 text-5xl font-black text-green-900">
+                Meet Our Artisans
+              </h2>
+
+              <p className="mt-5 text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                Every masterpiece is brought to life by skilled artisans who
+                dedicate years to preserving India's rich artistic heritage
+                through their passion and craftsmanship.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Artisan 1 */}
+
+              <motion.div
+                variants={fadeUp}
+                whileHover={{
+                  y: -15,
+                  rotate: 1,
+                }}
+                className="
+                  group
+                  bg-[#F8F5EF]
+                  rounded-[35px]
+                  overflow-hidden
+                  shadow-xl
+                  relative
+                "
+              >
+                <div className="overflow-hidden">
+                  <motion.img
+                    whileHover={{
+                      scale: 1.08,
+                    }}
+                    transition={{
+                      duration: 0.5,
+                    }}
+                    src="https://res.cloudinary.com/dwqvdqtgu/image/upload/q_auto/f_auto/v1781110249/clay_ue9na2.jpg"
+                    alt="Clay Artisan"
+                    className="h-80 w-full object-cover"
+                  />
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
+
+                <div className="p-6 relative z-10">
+                  <h3 className="text-2xl font-bold text-green-900">
+                    Clay Craft Specialist
+                  </h3>
+
+                  <p className="text-gray-500 mt-3 leading-relaxed">
+                    Bringing centuries-old pottery traditions to modern homes
+                    with exceptional attention to detail.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Artisan 2 */}
+
+              <motion.div
+                variants={fadeUp}
+                whileHover={{
+                  y: -15,
+                  rotate: 1,
+                }}
+                className="
+                  group
+                  bg-[#F8F5EF]
+                  rounded-[35px]
+                  overflow-hidden
+                  shadow-xl
+                  relative
+                "
+              >
+                <div className="overflow-hidden">
+                  <motion.img
+                    whileHover={{
+                      scale: 1.08,
+                    }}
+                    transition={{
+                      duration: 0.5,
+                    }}
+                    src="https://res.cloudinary.com/dwqvdqtgu/image/upload/q_auto/f_auto/v1781110260/wood_xj1oby.jpg"
+                    alt="Wood Artisan"
+                    className="h-80 w-full object-cover"
+                  />
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
+
+                <div className="p-6 relative z-10">
+                  <h3 className="text-2xl font-bold text-green-900">
+                    Woodwork Master
+                  </h3>
+
+                  <p className="text-gray-500 mt-3 leading-relaxed">
+                    Transforming natural wood into timeless decorative and
+                    functional handcrafted pieces.
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Artisan 3 */}
+
+              <motion.div
+                variants={fadeUp}
+                whileHover={{
+                  y: -15,
+                  rotate: 1,
+                }}
+                className="
+                  group
+                  bg-[#F8F5EF]
+                  rounded-[35px]
+                  overflow-hidden
+                  shadow-xl
+                  relative
+                "
+              >
+                <div className="overflow-hidden">
+                  <motion.img
+                    whileHover={{
+                      scale: 1.08,
+                    }}
+                    transition={{
+                      duration: 0.5,
+                    }}
+                    src="https://res.cloudinary.com/dwqvdqtgu/image/upload/q_auto/f_auto/v1781110257/fasion_svywa5.jpg"
+                    alt="Fashion Artisan"
+                    className="h-80 w-full object-cover"
+                  />
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
+
+                <div className="p-6 relative z-10">
+                  <h3 className="text-2xl font-bold text-green-900">
+                    Textile Designer
+                  </h3>
+
+                  <p className="text-gray-500 mt-3 leading-relaxed">
+                    Preserving traditional textile artistry through elegant
+                    handmade fashion creations.
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.section>
+
+        {/* FEATURES SECTION */}
+
+        <motion.section
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          className="max-w-7xl mx-auto px-4 py-16"
+        >
+          <motion.div variants={fadeUp} className="text-center mb-16">
+            <span className="inline-block bg-green-100 text-green-700 px-5 py-2 rounded-full text-sm font-semibold">
+              💎 Why CraftAI
+            </span>
+
+            <h2 className="mt-6 text-5xl font-black text-green-900">
+              Why Choose CraftAI
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <motion.div
-                whileHover={{
-                  y: -15,
-                  rotate: 1,
-                }}
-                className="  bg-[#F8F5EF]  rounded-[35px]  overflow-hidden  shadow-xl"
-              >
-                <img
-                  src={
-                    "https://res.cloudinary.com/dwqvdqtgu/image/upload/q_auto/f_auto/v1781110249/clay_ue9na2.jpg"
-                  }
-                  className="h-80 w-full object-cover"
-                />
+            <p className="mt-5 text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
+              We combine authentic craftsmanship with modern convenience to
+              deliver an unforgettable shopping experience while supporting
+              talented local artisans.
+            </p>
+          </motion.div>
 
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold">Master Artisan</h3>
-
-                  <p className="text-gray-500 mt-2">
-                    Specializing in handmade crafts and traditional art forms.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{
-                  y: -15,
-                  rotate: 1,
-                }}
-                className="  bg-[#F8F5EF]  rounded-[35px]  overflow-hidden  shadow-xl"
-              >
-                <img
-                  src={
-                    "https://res.cloudinary.com/dwqvdqtgu/image/upload/q_auto/f_auto/v1781110260/wood_xj1oby.jpg"
-                  }
-                  className="h-80 w-full object-cover"
-                />
-
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold">Master Artisan</h3>
-
-                  <p className="text-gray-500 mt-2">
-                    Specializing in handmade crafts and traditional art forms.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{
-                  y: -15,
-                  rotate: 1,
-                }}
-                className="  bg-[#F8F5EF]  rounded-[35px]  overflow-hidden  shadow-xl  flex flex-col items-center justify-center"
-              >
-                <img
-                  src={
-                    "https://res.cloudinary.com/dwqvdqtgu/image/upload/q_auto/f_auto/v1781110257/fasion_svywa5.jpg"
-                  }
-                  className="h-80 w-full object-cover"
-                />
-
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold">Master Artisan</h3>
-
-                  <p className="text-gray-500 mt-2">
-                    Specializing in handmade crafts and traditional art forms.
-                  </p>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/*Features*/}
-        <section className="max-w-7xl mx-auto px-4 py-10">
-          <h2 className="text-center text-4xl font-black text-green-900 mb-16">
-            Why Choose CraftAI
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            variants={containerVariants}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
             {features.map((feature) => (
               <motion.div
                 key={feature.title}
+                variants={fadeUp}
                 whileHover={{
-                  y: -10,
+                  y: -12,
                   scale: 1.03,
                 }}
-                className="bg-white p-8  rounded-[30px] shadow-lg"
+                transition={{
+                  duration: 0.3,
+                }}
+                className="
+                  relative
+                  overflow-hidden
+                  rounded-[32px]
+                  bg-white/70
+                  backdrop-blur-xl
+                  border border-white/60
+                  p-8
+                  shadow-2xl
+                  group
+                "
               >
-                <feature.icon size={40} className="text-green-700 " />
+                {/* Decorative Glow */}
 
-                <h3 className="text-xl font-bold mt-5">{feature.title}</h3>
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    opacity-0
+                    group-hover:opacity-100
+                    transition
+                    duration-500
+                    bg-gradient-to-br
+                    from-green-100/40
+                    via-transparent
+                    to-emerald-100/40
+                  "
+                />
 
-                <p className="text-gray-600 mt-3">{feature.desc}</p>
+                <motion.div
+                  whileHover={{
+                    rotate: 8,
+                    scale: 1.1,
+                  }}
+                  transition={{
+                    duration: 0.3,
+                  }}
+                  className="
+                    relative
+                    z-10
+                    w-16
+                    h-16
+                    rounded-2xl
+                    bg-green-100
+                    flex
+                    items-center
+                    justify-center
+                  "
+                >
+                  <feature.icon size={34} className="text-green-700" />
+                </motion.div>
+
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-bold mt-6 text-green-900">
+                    {feature.title}
+                  </h3>
+
+                  <p className="text-gray-600 mt-4 leading-relaxed">
+                    {feature.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
-        {/*Timeline*/}
-        {/* <section className="py-10">
+        {/* QUOTE SECTION */}
+
+        <motion.section
+          initial={{
+            opacity: 0,
+            y: 50,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.3,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+          className="py-16 px-4"
+        >
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-center text-5xl font-black text-green-900 mb-20">
-              Our Journey
-            </h2>
+            <div
+              className="
+                bg-white/70
+                backdrop-blur-xl
+                border border-white/60
+                rounded-[40px]
+                shadow-2xl
+                p-10 lg:p-16
+                text-center
+              "
+            >
+              <motion.div
+                animate={{
+                  rotate: [0, 5, -5, 0],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                }}
+                className="text-6xl mb-6"
+              >
+                ✨
+              </motion.div>
 
-            <div className="space-y-12">
-              <div className="flex gap-8">
-                <div className="w-16 h-16 rounded-full bg-green-700" />
-                <div>
-                  <h3 className="font-bold text-2xl">2024</h3>
-                  <p className="text-gray-600">CraftAI was founded.</p>
-                </div>
-              </div>
+              <h3 className="text-3xl lg:text-4xl font-black text-green-900 leading-relaxed">
+                "Craft is not just a product; it is the story of heritage,
+                dedication, and human creativity."
+              </h3>
 
-              <div className="flex gap-8">
-                <div className="w-16 h-16 rounded-full bg-green-700" />
-                <div>
-                  <h3 className="font-bold text-2xl">2025</h3>
-                  <p className="text-gray-600">Partnered with 50+ artisans.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
-        {/* CTA */}
-        <section className="py-10">
-          <div className="lg:max-w-6xl max-w-3xl  mx-auto px-4">
-            <div className="  bg-gradient-to-r  from-green-800  via-green-700  to-emerald-600  rounded-[50px]  p-20  text-center  text-white">
-              <h2 className="lg:text-6xl text-4xl font-black">
-                Discover Handmade Luxury
-              </h2>
-
-              <p className="mt-6 text-xl text-white/80">
-                Support artisans. Preserve heritage.
+              <p className="mt-6 text-gray-600 text-lg">
+                — The CraftAI Philosophy
               </p>
-
-              <button  onClick={() => navigate("/products")} className="mt-10 bg-white text-green-700 px-10 py-4 cursor-pointer rounded-2xl font-bold">
-                Shop Now
-              </button>
             </div>
           </div>
-        </section>
+        </motion.section>
+
+        {/* PREMIUM CTA SECTION */}
+
+        <motion.section
+          initial={{
+            opacity: 0,
+            scale: 0.95,
+            y: 40,
+          }}
+          whileInView={{
+            opacity: 1,
+            scale: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+          className="py-20 px-4"
+        >
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              whileHover={{
+                scale: 1.01,
+              }}
+              className="
+                relative
+                overflow-hidden
+                rounded-[50px]
+                bg-gradient-to-r
+                from-green-800
+                via-green-700
+                to-emerald-600
+                p-12
+                lg:p-20
+                text-center
+                text-white
+                shadow-[0_30px_80px_rgba(0,0,0,0.18)]
+              "
+            >
+              {/* Animated Gradient Glow */}
+
+              <motion.div
+                animate={{
+                  x: ["-100%", "100%"],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="
+                  absolute
+                  inset-y-0
+                  left-0
+                  w-1/2
+                  bg-white/10
+                  blur-3xl
+                "
+              />
+
+              {/* Floating Decorative Circles */}
+
+              <motion.div
+                animate={{
+                  y: [0, -15, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                }}
+                className="
+                  absolute
+                  top-8
+                  left-8
+                  w-24
+                  h-24
+                  rounded-full
+                  bg-white/10
+                "
+              />
+
+              <motion.div
+                animate={{
+                  y: [0, 15, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                }}
+                className="
+                  absolute
+                  bottom-8
+                  right-8
+                  w-32
+                  h-32
+                  rounded-full
+                  bg-white/10
+                "
+              />
+
+              <div className="relative z-10">
+                <motion.span
+                  initial={{
+                    opacity: 0,
+                    y: -20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  className="
+                    inline-block
+                    bg-white/20
+                    px-5
+                    py-2
+                    rounded-full
+                    text-sm
+                    font-semibold
+                    tracking-wide
+                  "
+                >
+                  🌿 Support Indian Artisans
+                </motion.span>
+
+                <h2 className="mt-8 text-4xl lg:text-6xl font-black leading-tight">
+                  Discover Handmade Luxury
+                </h2>
+
+                <p className="mt-6 text-lg lg:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+                  Explore unique handcrafted treasures, celebrate India's
+                  artistic heritage, and bring timeless craftsmanship into your
+                  home.
+                </p>
+
+                <motion.button
+                  whileHover={{
+                    scale: 1.06,
+                    y: -4,
+                  }}
+                  whileTap={{
+                    scale: 0.95,
+                  }}
+                  onClick={() => navigate("/products")}
+                  className="
+                    mt-10
+                    bg-white
+                    text-green-700
+                    px-10
+                    py-4
+                    rounded-2xl
+                    font-bold
+                    shadow-2xl
+                    cursor-pointer
+                    transition-all
+                  "
+                >
+                  Shop Now
+                </motion.button>
+              </div>
+            </motion.div>
+          </div>
+        </motion.section>
       </div>
     </>
   );
