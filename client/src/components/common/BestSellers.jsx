@@ -76,18 +76,7 @@ return ( <section className="py-20 px-4 bg-[#F8F5EF]"> <div className="max-w-7xl
                 repeat: Infinity,
                 duration: 2,
               }}
-              className="
-                absolute
-                top-4
-                left-4
-                bg-green-700
-                text-white
-                px-4
-                py-2
-                rounded-full
-                text-xs
-                font-semibold
-              "
+              className="  absolute  top-4  left-4  bg-green-700  text-white  px-4  py-2  rounded-full  text-xs  font-semibold"
             >
               Bestseller
             </motion.div>
@@ -95,16 +84,7 @@ return ( <section className="py-20 px-4 bg-[#F8F5EF]"> <div className="max-w-7xl
             {/* Overlay */}
 
             <div
-              className="
-                absolute
-                inset-0
-                bg-gradient-to-t
-                from-black/40
-                to-transparent
-                opacity-0
-                group-hover:opacity-100
-                transition
-              "
+              className="  absolute  inset-0  bg-gradient-to-t  from-black/40  to-transparent  opacity-0  group-hover:opacity-100  transition"
             />
           </div>
 
@@ -124,31 +104,14 @@ return ( <section className="py-20 px-4 bg-[#F8F5EF]"> <div className="max-w-7xl
               whileHover={{
                 scale: 1.05,
               }}
-              className="
-                mt-4
-                inline-block
-                text-2xl
-                font-bold
-                text-green-700
-              "
+              className="  mt-4  inline-block  text-2xl  font-bold  text-green-700"
             >
               ₹{product.price}
             </motion.div>
 
             <Link
               to={`/products/${product._id}`}
-              className="
-                block
-                mt-5
-                text-center
-                bg-green-700
-                hover:bg-green-800
-                text-white
-                py-3
-                rounded-2xl
-                transition-all
-                font-medium
-              "
+              className="  block  mt-5  text-center  bg-green-700  hover:bg-green-800  text-white  py-3  rounded-2xl  transition-all  font-medium"
             >
               View Product
             </Link>

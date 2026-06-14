@@ -245,14 +245,14 @@ const ManageProducts = () => {
                         <div className="flex gap-2">
                           <Link
                             to={`/admin/edit/${product._id}`}
-                            className="    bg-blue-600    hover:bg-blue-700    text-white    px-4    py-2    rounded-xl    transition  "
+                            className="    cursor-pointer    bg-blue-600  hover:bg-blue-700    text-white    px-4    py-2    rounded-xl    transition  "
                           >
                             Edit
                           </Link>
 
                           <button
                             onClick={() => openDeleteModal(product)}
-                            className="    bg-red-600    hover:bg-red-700    text-white    px-4    py-2    rounded-xl    transition  "
+                            className="    cursor-pointer    bg-red-600    hover:bg-red-700    text-white    px-4    py-2    rounded-xl    transition  "
                           >
                             Delete
                           </button>
@@ -277,7 +277,7 @@ const ManageProducts = () => {
             className="  fixed  inset-0  z-50  flex  items-center  justify-center"
           >
             <div
-              className="absolute inset-0 bg-black/50"
+              className="absolute  cursor-pointer  inset-0 bg-black/50"
               onClick={closeDeleteModal}
             />
 
@@ -296,7 +296,7 @@ const ManageProducts = () => {
               }}
               className="  relative  bg-white  w-[90%]  max-w-md  p-6  rounded-3xl  shadow-2xl"
             >
-              <h2 className="text-2xl font-bold mb-3">Delete Product?</h2>
+              <h2 className="text-2xl font-bold text-green-700 mb-3">Delete Product?</h2>
 
               <p className="text-gray-600 mb-6">
                 This action cannot be undone.
@@ -305,14 +305,14 @@ const ManageProducts = () => {
               <div className="flex justify-end gap-3">
                 <button
                   onClick={closeDeleteModal}
-                  className="  px-5  py-2  border  rounded-xl"
+                  className="  px-5  py-2 cursor-pointer  border  rounded-xl"
                 >
                   Cancel
                 </button>
 
                 <button
                   onClick={deleteProduct}
-                  className="  px-5  py-2  bg-red-600  text-white  rounded-xl"
+                  className="  px-5 cursor-pointer   bg-red-600  text-white  rounded-xl"
                 >
                   Delete
                 </button>

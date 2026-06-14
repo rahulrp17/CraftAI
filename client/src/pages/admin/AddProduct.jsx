@@ -152,7 +152,7 @@ const AddProduct = () => {
       );
 
       showCraftAISuccessToast(
-        `"&${formData.title}&" product added successfully!`,
+        `${formData.title} product added successfully!`,
       );
       setFormData({
         title: "",
@@ -303,7 +303,7 @@ const AddProduct = () => {
               <button
                 type="submit"
                 disabled={loading || uploading}
-                className="  w-full  bg-green-700  hover:bg-green-800  text-white  py-3  rounded-2xl  font-semibold  shadow-lg  transition  disabled:opacity-60  disabled:cursor-not-allowed"
+                className="  w-full  bg-green-700 cursor-pointer  hover:bg-green-800  text-white  py-3  rounded-2xl  font-semibold  shadow-lg  transition  disabled:opacity-60  disabled:cursor-not-allowed"
               >
                 {loading ? "Adding Product..." : "Add Product"}
               </button>

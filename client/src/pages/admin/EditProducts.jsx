@@ -218,7 +218,7 @@ const EditProducts = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-green-700 hover:bg-green-800 text-white py-3 rounded-2xl font-semibold shadow-md transition disabled:opacity-60"
+                className="w-full bg-green-700 cursor-pointer hover:bg-green-800 text-white py-3 rounded-2xl font-semibold shadow-md transition disabled:opacity-60"
               >
                 {loading ? "Updating Product..." : "Update Product"}
               </button>

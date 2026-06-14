@@ -165,7 +165,7 @@ const AIChat = () => {
                     {msg.products.map((product) => (
                       <div
                         key={product._id}
-                        className="  bg-white  rounded-2xl  overflow-hidden  shadow  border"
+                        className="  bg-white  rounded-2xl  overflow-hidden    border border-green-200 shadow-md"
                       >
                         <img
                           src={product.image}
