@@ -151,7 +151,7 @@ const About = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           className="relative max-w-7xl mx-auto px-4 py-12 lg:py-20"
         >
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -233,7 +233,7 @@ const About = () => {
                 <motion.img
                   whileHover={{ scale: 1.08 }}
                   transition={{ duration: 0.5 }}
-                  src="https://images.unsplash.com/photo-1517048676732-d65bc937f952"
+                  src="https://res.cloudinary.com/dwqvdqtgu/image/upload/q_auto/f_auto/v1781450330/photo-1517048676732-d65bc937f952_s1mxq1.jpg"
                   alt="CraftAI Hero"
                   className="w-full h-[500px] object-cover"
                 />
@@ -429,7 +429,7 @@ const About = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           className="max-w-7xl mx-auto px-4 py-16"
         >
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -443,7 +443,7 @@ const About = () => {
                 <motion.h2
                   initial={{ opacity: 0, scale: 0.7 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.5 }}
                   className="text-5xl font-black text-green-700"
                 >
@@ -462,7 +462,7 @@ const About = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           className="max-w-7xl mx-auto py-12 px-4"
         >
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -545,7 +545,7 @@ const About = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           className="bg-white py-16"
         >
           <div className="max-w-7xl mx-auto px-4">
@@ -668,7 +668,7 @@ const About = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           className="max-w-7xl mx-auto px-4 py-16"
         >
           <motion.div variants={fadeUp} className="text-center mb-16">
@@ -728,7 +728,7 @@ const About = () => {
         <motion.section
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8 }}
           className="py-16 px-4"
         >
@@ -759,7 +759,7 @@ const About = () => {
         <motion.section
           initial={{ opacity: 0, scale: 0.95, y: 40 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.8 }}
           className="py-20 px-4"
         >
@@ -796,7 +796,7 @@ const About = () => {
                 <motion.span
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   className="inline-block bg-white/20 px-5 py-2 rounded-full text-sm font-semibold tracking-wide"
                 >
                   🌿 Support Indian Artisans
