@@ -515,9 +515,9 @@ const Contact = () => {
                 >
                   <span
                     className="
-                      text-lg
+                      text-xl
                       font-semibold
-                      text-green-900
+                      text-green-700
                     "
                   >
                     {faq.question}

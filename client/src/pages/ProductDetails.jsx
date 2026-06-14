@@ -83,7 +83,7 @@ Total: ₹${total}
 
 ━━━━━━━━━━━━━━━━━━━━━━
 🙏 Thank you for shopping with CraftAI!
-✨ Handmade with love
+✨ Handmade with love ❤️
 `;
 
     const whatsappUrl = `https://wa.me/919342830199?text=${encodeURIComponent(
