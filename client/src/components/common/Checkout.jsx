@@ -46,7 +46,7 @@ ${index + 1}. ${item.title}
 
 ━━━━━━━━━━━━━━━━━━━━━━
 🏷 Order ID: ${orderId}
-📅 Date: ${date}
+🗓️ Date: ${date}
 ━━━━━━━━━━━━━━━━━━━━━━
 
 👤 *CUSTOMER DETAILS*

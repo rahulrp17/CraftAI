@@ -29,10 +29,11 @@ import { CartProvider } from "./context/CartContext";
 import { AuthProvider } from "./context/AuthContext";
 import CookieConsent from "./components/common/CookieConsent";
 import { useScrollToTop } from "./hooks/useScrollToTop";
+import NotFound from "./pages/NotFound";
 
 function AppContent() {
   useScrollToTop();
-  
+
   return (
     <>
       <Navbar />
@@ -62,6 +63,8 @@ function AppContent() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
         <Route path="/terms-conditions" element={<TermsConditions />} />
+
+        <Route path="/*" element={<NotFound />} />
 
         {/* Admin */}
         <Route path="/admin/login" element={<AdminLogin />} />
@@ -125,7 +128,6 @@ function AppContent() {
     </>
   );
 }
-
 
 function App() {
   const [appReady, setAppReady] = useState(false);

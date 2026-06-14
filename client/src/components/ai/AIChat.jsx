@@ -110,23 +110,18 @@ const AIChat = () => {
       >
         <button
           onClick={() => setOpen(!open)}
-          className="  group  relative  overflow-hidden  flex  items-center  gap-3  rounded-full  bg-white/90  backdrop-blur-xl  border  border-green-100  shadow-[0_20px_50px_rgba(0,0,0,0.12)]  hover:shadow-[0_25px_60px_rgba(22,163,74,0.25)]  transition-all  duration-500  px-4  py-3"    >
+          className="  group  relative cursor-pointer  overflow-hidden  flex  items-center  gap-3  rounded-full  bg-white/90  backdrop-blur-xl  border  border-green-100  shadow-[0_20px_50px_rgba(0,0,0,0.12)]  hover:shadow-[0_25px_60px_rgba(22,163,74,0.25)]  transition-all  duration-500  px-4  py-3"
+        >
           {/* Glow */}
-          <span
-            className=" absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-green-500/10 via-emerald-500/20 to-green-500/10" />
+          <span className=" absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-green-500/10 via-emerald-500/20 to-green-500/10" />
           {/* Bot Icon */}
-          <div
-            className="  relative  flex  items-center  justify-center  w-12  h-12  rounded-full  bg-gradient-to-br  from-green-600  to-emerald-500  text-white  shadow-lg"    >
+          <div className="  relative  flex  items-center  justify-center  w-12  h-12  rounded-full  bg-gradient-to-br  from-green-600  to-emerald-500  text-white  shadow-lg">
             <Bot size={24} />
 
             {/* Pulse Dot */}
-            <span
-              className="   absolute   top-0   right-0   w-3   h-3   rounded-full   bg-green-400 "
-            />
+            <span className="   absolute   top-0   right-0   w-3   h-3   rounded-full   bg-green-400 " />
 
-            <span
-              className="    absolute    top-0    right-0    w-3    h-3    rounded-full    bg-green-400    animate-ping  "
-            />
+            <span className="    absolute    top-0    right-0    w-3    h-3    rounded-full    bg-green-400    animate-ping  " />
           </div>
 
           {/* Text */}

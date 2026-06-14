@@ -56,7 +56,7 @@ const ProductDetails = () => {
 
 ━━━━━━━━━━━━━━━━━━━━━━
 🏷 Order ID: ${orderId}
-📅 Date: ${date}
+🗓️ Date: ${date}
 ━━━━━━━━━━━━━━━━━━━━━━
 
 👤 *CUSTOMER DETAILS*
