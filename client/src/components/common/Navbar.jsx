@@ -154,7 +154,7 @@ const Navbar = () => {
           onClick={() => setOpen(!open)}
           className="md:hidden text-gray-800"
         >
-          {open ? <X /> : <Menu />}
+          {open ? <X /> : <Menu className="text-2xl cursor-pointer" />}
         </button>
       </div>
 

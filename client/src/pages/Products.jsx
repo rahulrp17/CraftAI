@@ -322,7 +322,7 @@ const Products = () => {
                 initial={{ scale: 0.8 }}
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.8 }}
-                className="bg-white w-[90%] max-w-md rounded-2xl overflow-hidden"
+                className="bg-white relative w-[90%] max-w-md rounded-2xl overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
               >
                 <img
@@ -350,7 +350,7 @@ const Products = () => {
 
                   <button
                     onClick={() => setSelected(null)}
-                    className="absolute top-3 right-3"
+                    className="absolute top-3 right-3 cursor-pointer text-white bg-red-500 hover:text-gray-800 "  
                   >
                     <X />
                   </button>
