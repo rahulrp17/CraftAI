@@ -101,7 +101,7 @@ const Products = () => {
       <div className="bg-[#F8F5EF] min-h-screen pt-24">
         {/* HERO */}
         <div className="max-w-7xl mx-auto px-4 text-center mb-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-green-900">
+          <h1 className="mt-6 text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-800 to-amber-900">
             Discover Handmade Crafts
           </h1>
 

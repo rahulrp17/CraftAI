@@ -65,6 +65,7 @@ function AppContent() {
         <Route path="/terms-conditions" element={<TermsConditions />} />
 
         <Route path="/*" element={<NotFound />} />
+        <Route path="/loader" element={<Loader />} />
 
         {/* Admin */}
         <Route path="/admin/login" element={<AdminLogin />} />

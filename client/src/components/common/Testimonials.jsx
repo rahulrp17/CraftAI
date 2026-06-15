@@ -53,7 +53,7 @@ const Testimonials = () => {
 
       {/* TITLE */}
       <div className="text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-bold text-green-900">
+        <h2 className="mt-6 text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-800 to-amber-900">
           What Our Customers Say
         </h2>
         <p className="text-gray-500 mt-2">

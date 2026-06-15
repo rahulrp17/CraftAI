@@ -109,7 +109,7 @@ const EditProducts = () => {
                 CraftAI Admin
               </p>
 
-              <h1 className="text-3xl font-bold text-green-900">
+              <h1 className="mt-6 text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-800 to-amber-900">
                 Edit Product
               </h1>
             </div>

@@ -131,7 +131,7 @@ const Contact = () => {
           </div>
 
           <h1
-            className="  mt-8  text-5xl  md:text-7xl  font-black  text-green-900  leading-tight"
+            className="  mt-6 text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-800 to-amber-900"
           >
             Let's Create
             <br />

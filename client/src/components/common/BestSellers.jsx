@@ -16,7 +16,7 @@ return ( <section className="py-20 px-4 bg-[#F8F5EF]"> <div className="max-w-7xl
         Most Loved
       </span>
 
-      <h2 className="text-4xl md:text-5xl font-bold text-green-900 mt-3">
+      <h2 className="mt-6 text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-800 to-amber-900">
         Best Sellers
       </h2>
 

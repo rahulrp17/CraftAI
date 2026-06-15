@@ -243,7 +243,7 @@ const Dashboard = () => {
           >
             <p className="text-green-700 font-medium">Welcome Back 👋</p>
 
-            <h1 className="text-4xl md:text-5xl font-bold text-green-900 mt-2">
+            <h1 className="mt-6 text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-800 to-amber-900">
               Admin Dashboard
             </h1>
 

@@ -31,15 +31,7 @@ const Hero = () => {
 
           {/* Heading */}
           <h1
-            className="
-              mt-6
-              text-4xl
-              md:text-6xl
-              lg:text-7xl
-              font-bold
-              text-green-900
-              leading-[1.1]
-            "
+            className="  mt-6  text-4xl  md:text-6xl  lg:text-7xl  font-bold  text-green-900  leading-[1.1]"
           >
             Discover India's
             <span className="block text-green-700">
@@ -59,19 +51,7 @@ const Hero = () => {
 
             <Link
               to="/products"
-              className="
-                bg-green-700
-                hover:bg-green-800
-                text-white
-                px-8
-                py-4
-                rounded-2xl
-                font-semibold
-                transition-all
-                duration-300
-                shadow-lg
-                hover:shadow-xl
-              "
+              className="  bg-green-700  hover:bg-green-800  text-white  px-8  py-4  rounded-2xl  font-semibold  transition-all  duration-300  shadow-lg  hover:shadow-xl"
             >
               Explore Products
             </Link>
@@ -86,20 +66,7 @@ const Hero = () => {
       }
     )
   }
-  className="
-    border-2
-    border-green-700
-    text-green-700
-    px-8
-    py-4
-    rounded-2xl
-    font-semibold
-    hover:bg-green-700
-    hover:text-white
-    transition-all
-    duration-300
-    cursor-pointer
-  "
+  className="  border-2  border-green-700  text-green-700  px-8  py-4  rounded-2xl  font-semibold  hover:bg-green-700  hover:text-white  transition-all  duration-300  cursor-pointer"
 >
   Become a Seller
 </button>
@@ -153,12 +120,7 @@ const Hero = () => {
             <img
               src="https://images.unsplash.com/photo-1517705008128-361805f42e86?w=1000"
               alt="Handicrafts"
-              className="
-                w-full
-                h-[400px]
-                md:h-[500px]
-                object-cover
-              "
+              className="  w-full  h-[400px]  md:h-[500px]  object-cover"
             />
           </div>
 
@@ -172,23 +134,7 @@ const Hero = () => {
               duration: 4,
               ease: "easeInOut",
             }}
-            className="
-              absolute
-              bottom-6
-              left-1/2
-              -translate-x-1/2
-              lg:left-10
-              lg:translate-x-0
-              bg-white
-              shadow-xl
-              px-6
-              py-4
-              rounded-2xl
-              flex
-              items-center
-              gap-3
-              w-max
-            "
+            className="  absolute  bottom-6  left-1/2  -translate-x-1/2  lg:left-10  lg:translate-x-0  bg-white  shadow-xl  px-6  py-4  rounded-2xl  flex  items-center  gap-3  w-max"
           >
             <span className="text-2xl">🏺</span>
 

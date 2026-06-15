@@ -109,11 +109,11 @@ const ManageProducts = () => {
             animate={{ opacity: 1, y: 0 }}
             className="mb-8"
           >
-            <p className="uppercase tracking-[3px] font-bold  text-green-600 text-xl">
+            <p className="uppercase tracking-[3px] font-bold  text-green-600 text-sm">
               CraftAI Admin
             </p>
 
-            <h1 className="text-4xl font-bold text-green-900 mt-1">
+            <h1 className="mt-6 text-4xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-800 to-amber-900">
               Manage Products
             </h1>
           </motion.div>
