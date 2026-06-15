@@ -608,7 +608,7 @@ const About = () => {
                   <motion.img
                     whileHover={{ scale: 1.08 }}
                     transition={{ duration: 0.5 }}
-                    src="https://res.cloudinary.com/dwqvdqtgu/image/upload/q_auto/f_auto/v1781110260/wood_xj1oby.jpg"
+                    src="https://res.cloudinary.com/dwqvdqtgu/image/upload/q_auto/f_auto/v1781500107/IMG_20260615_103706_ymd9f1.jpg"
                     alt="Wood Artisan"
                     className="h-80 w-full object-cover"
                   />
