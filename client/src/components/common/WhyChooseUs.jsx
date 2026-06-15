@@ -47,7 +47,7 @@ const WhyChooseUs = () => {
 
       {/* ================= TITLE ================= */}
       <div className="text-center mb-12">
-        <h2 className="mt-6 text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-800 to-amber-900">
+        <h2 className="mt-6 text-4xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-800 to-amber-900">
           Why People Choose Us
         </h2>
         <p className="text-gray-500 mt-2">

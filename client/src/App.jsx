@@ -30,12 +30,14 @@ import { AuthProvider } from "./context/AuthContext";
 import CookieConsent from "./components/common/CookieConsent";
 import { useScrollToTop } from "./hooks/useScrollToTop";
 import NotFound from "./pages/NotFound";
+import ScrollProgress from "./components/common/ScrollProgress";
 
 function AppContent() {
   useScrollToTop();
 
   return (
     <>
+      <ScrollProgress />
       <Navbar />
 
       <AIChat />

@@ -478,7 +478,7 @@ const Footer = () => {
             whileHover={{ scale: 1.1, y: -4 }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToTop}
-            className="w-14 h-14 rounded-full bg-green-600 hover:bg-green-700 flex items-center justify-center shadow-2xl"
+            className=" relative w-14 h-14 rounded-full bg-green-600 hover:bg-green-700 lg:right-140 flex items-center justify-center shadow-2xl"
           >
             <FaArrowUp size={22} />
           </motion.button>

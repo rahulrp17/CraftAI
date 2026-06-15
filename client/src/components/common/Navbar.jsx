@@ -96,7 +96,7 @@ const Navbar = () => {
             {/* ADMIN LINKS */}
             {isAdmin && (
               <>
-                <div className="h-5 w-px bg-gray-300" />
+                <div className="h-5 w-px  bg-gray-800" />
 
                 {adminLinks.map((link) => (
                   <Link
