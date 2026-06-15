@@ -167,10 +167,10 @@ const About = () => {
                 ✨ About CraftAI
               </motion.span>
 
-              <h1 className="mt-8 text-5xl md:text-6xl lg:text-7xl font-black leading-tight text-green-900">
+              <h1 className="mt-6 text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-800 to-amber-900">
                 Preserving
                 <br />
-                <span className="text-green-600">Indian Handicrafts</span>
+                <span className="">Indian Handicrafts</span>
               </h1>
 
               <p className="mt-8 text-lg text-gray-600 leading-relaxed max-w-2xl">
@@ -304,7 +304,7 @@ const About = () => {
                   🌿 Our Mission
                 </span>
 
-                <h2 className="mt-6 text-4xl lg:text-5xl font-black text-green-900 leading-tight">
+                <h2 className="mt-6 text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-800 to-amber-900">
                   Crafting Stories,
                   <br />
                   Empowering Artisans
@@ -473,7 +473,7 @@ const About = () => {
                 Our Story
               </span>
 
-              <h2 className="mt-4 text-5xl font-black text-green-900 leading-tight">
+              <h2 className="mt-6 text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-800 to-amber-900">
                 Every Craft
                 <br />
                 Tells A Story
@@ -554,7 +554,7 @@ const About = () => {
                 👨‍🎨 The Faces Behind CraftAI
               </span>
 
-              <h2 className="mt-6 text-5xl font-black text-green-900">
+              <h2 className="mt-6 text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-800 to-amber-900">
                 Meet Our Artisans
               </h2>
 
@@ -676,7 +676,7 @@ const About = () => {
               💎 Why CraftAI
             </span>
 
-            <h2 className="mt-6 text-5xl font-black text-green-900">
+            <h2 className="mt-6 text-5xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-900 via-green-800 to-amber-900">
               Why Choose CraftAI
             </h2>
 
