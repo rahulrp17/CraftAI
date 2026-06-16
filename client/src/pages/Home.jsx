@@ -22,7 +22,7 @@ const Home = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("//api/products");
+        const res = await axios.get(`${backendUrl}/api/products`);
         setProducts(res.data);
       } finally {
         setLoading(false);
