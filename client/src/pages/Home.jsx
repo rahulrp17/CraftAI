@@ -11,11 +11,26 @@ import WhyChooseUs from "../components/common/WhyChooseUs";
 import Testimonials from "../components/common/Testimonials";
 import Categories from "../components/common/Categories";
 import { useAuth } from "../context/AuthContext";
-import DemoCredentials from "../components/common/DemoCredentials";   
+import DemoCredentials from "../components/common/DemoCredentials";
 const Home = () => {
   const { backendUrl } = useAuth();
 
   const [products, setProducts] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await axios.get("//api/products");
+        setProducts(res.data);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   useEffect(() => {
     if (backendUrl) {
@@ -24,7 +39,6 @@ const Home = () => {
         .then((res) => setProducts(res.data));
     }
     console.log("page rendering");
-    
   }, [backendUrl]);
   return (
     <>
@@ -35,7 +49,7 @@ const Home = () => {
 
       <Categories />
 
-      <BestSellers products={products} />
+      <BestSellers products={products} loading={loading} />
 
       <WhyChooseUs />
 
